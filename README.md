@@ -5,4 +5,4 @@ If you have enough patience to actually start the game, that is.
 
 ---
 
-With the exception of fonts, all assets in this projects game are custom-made, including code, models, textures, sound effects and music.
+With the exception of fonts, all assets in this project are custom-made, including code, models, textures, sound effects and music.
