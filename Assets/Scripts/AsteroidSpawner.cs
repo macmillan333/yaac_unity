@@ -27,7 +27,48 @@ public class AsteroidSpawner : MonoBehaviour
     {
         // Spawn `numInitialAsteroids` top-level asteroids. Their positions should be carefully chosen so that:
         // - they don't collide with each other
-        // - they are moderately far away from player ship
+        // - they areat least 5 units away from player ship
+        List<Vector3> spawnedLocations = new List<Vector3>();
+        float diameter = asteroidProperties[0].size;
+        for (int i = 0; i < numInitialAsteroids; i++)
+        {
+            Vector3 spawnLocation = Vector3.zero;
+            int attempt = 0;
+            for (; attempt < 100; attempt++)
+            {
+                spawnLocation = new Vector3(
+                    (Random.value - 0.5f) * WarpBorder.borderSize.x * 2f,
+                    0f,
+                    (Random.value - 0.5f) * WarpBorder.borderSize.z * 2f);
+                float distanceToOrigin = spawnLocation.magnitude;
+                if (distanceToOrigin <= diameter * 0.5f + 5f) continue;
+                bool awayFromAllOther = true;
+                foreach (Vector3 other in spawnedLocations)
+                {
+                    float distanceToOther = Vector3.Distance(other, spawnLocation);
+                    if (distanceToOther < diameter)
+                    {
+                        awayFromAllOther = false;
+                        break;
+                    }
+                }
+                if (!awayFromAllOther) continue;
+                break;
+            }
+            if (attempt == 100)
+            {
+                throw new System.InvalidOperationException("Failed to spawn asteroid after 100 attempts.");
+            }
+
+            GameObject asteroid = Instantiate(asteroidPrefab);
+            asteroid.transform.position = spawnLocation;
+            asteroid.transform.localScale = new Vector3(diameter, diameter, diameter);
+            float speed = Random.value * asteroidProperties[0].maxSpeed;
+            float angle = Random.value * Mathf.PI * 2f;
+            asteroid.GetComponent<Rigidbody>().velocity = new Vector3(
+                Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * speed;
+            spawnedLocations.Add(spawnLocation);
+        }
     }
 
     // Update is called once per frame
