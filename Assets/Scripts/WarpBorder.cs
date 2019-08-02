@@ -16,10 +16,4 @@ public class WarpBorder : MonoBehaviour
             );
         transform.localScale = borderSize * 2;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
