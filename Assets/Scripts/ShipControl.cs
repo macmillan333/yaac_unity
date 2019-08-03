@@ -9,14 +9,18 @@ public class ShipControl : MonoBehaviour
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
     public float bulletSpeed;
+    public GameObject missilePrefab;
+    public float missileSpeed;
     [Tooltip("Can fire 1 bullet per this many frames.")]
     public int shootInternal;
+    public int numMissiles;
     private int frameOfLastShot;
 
     // Start is called before the first frame update
     void Start()
     {
         frameOfLastShot = -shootInternal;
+        numMissiles = 999;
     }
 
     // Update is called once per frame
@@ -39,9 +43,29 @@ public class ShipControl : MonoBehaviour
         if (Input.GetButton("Fire") && Time.frameCount >= frameOfLastShot + shootInternal)
         {
             frameOfLastShot = Time.frameCount;
-            GameObject bullet = Instantiate(bulletPrefab);
-            bullet.transform.position = bulletSpawnPoint.position;
-            bullet.GetComponent<Rigidbody>().velocity = facingDirection * bulletSpeed;
+            if (numMissiles > 0)
+            {
+                ShootMissile(facingDirection);
+                numMissiles--;
+            }
+            else
+            {
+                ShootBullet(facingDirection);
+            }
         }
+    }
+
+    private void ShootBullet(Vector3 direction)
+    {
+        GameObject bullet = Instantiate(bulletPrefab);
+        bullet.transform.position = bulletSpawnPoint.position;
+        bullet.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
+    }
+
+    private void ShootMissile(Vector3 direction)
+    {
+        GameObject missile = Instantiate(missilePrefab);
+        missile.transform.position = bulletSpawnPoint.position;
+        missile.GetComponent<Rigidbody>().velocity = direction * missileSpeed;
     }
 }

@@ -158,7 +158,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8400069412336660377, guid: 94414471d532b5040a3fc3f59533036b,
     type: 3}
   bulletSpeed: 10
+  missilePrefab: {fileID: 3553381165358352410, guid: f3be25d3e4a433a44b13404da24f14d2,
+    type: 3}
+  missileSpeed: 10
   shootInternal: 10
+  numMissiles: 0
 --- !u!114 &396953352
 MonoBehaviour:
   m_ObjectHideFlags: 0

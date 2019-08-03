@@ -44,7 +44,12 @@ public class Asteroid : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
-            hp--;
+            int damage = 1;
+            if (other.gameObject.GetComponent<Missile>() != null)
+            {
+                damage = other.gameObject.GetComponent<Missile>().power;
+            }
+            hp -= damage;
             Destroy(other.gameObject);
             if (hp <= 0)
             {
