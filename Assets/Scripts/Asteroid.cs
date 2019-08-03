@@ -28,6 +28,10 @@ public class Asteroid : MonoBehaviour
         float angle = Random.value * Mathf.PI * 2f;
         GetComponent<Rigidbody>().velocity = new Vector3(
             Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * speed;
+
+        // Randomly choose an axis to apply torque
+        Vector3 axis = Random.onUnitSphere;
+        GetComponent<Rigidbody>().AddTorque(axis * speed * 100f);
     }
 
     // Update is called once per frame
