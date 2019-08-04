@@ -770,7 +770,7 @@ MonoBehaviour:
   lives: 3
   powerUpMedalPrefab: {fileID: 708439315216735861, guid: 31c4daa4972604645977ff07ca96a7b9,
     type: 3}
-  powerUpDropRate: 0.05
+  powerUpDropRate: 0.614
   powerUpProperties:
   - type: 0
     material: {fileID: 2100000, guid: 20de2653289dd0e45af5967dcba3f516, type: 2}

@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 708439315216735860}
   - component: {fileID: 708439315216735863}
   - component: {fileID: 708439315216735862}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07ce6d5b70d8b744ac4aa1d6103c7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  topRenderer: {fileID: 708439315888444255}
+  bottomRenderer: {fileID: 708439314174448689}
 --- !u!1 &708439315888444242
 GameObject:
   m_ObjectHideFlags: 0

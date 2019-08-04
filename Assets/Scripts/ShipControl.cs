@@ -20,6 +20,7 @@ public class ShipControl : MonoBehaviour
     private float shieldTimer;
 
     public static event Delegates.Void ShipDestroyed;
+    public static event Delegates.Void PickedUpOneUp;
     
     void Start()
     {
@@ -90,6 +91,35 @@ public class ShipControl : MonoBehaviour
         {
             ShipDestroyed?.Invoke();
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("PowerUp"))
+        {
+            PowerUpProperties properties = other.GetComponent<PowerUpMedal>().GetProperties();
+            switch (properties.type)
+            {
+                case PowerUpType.OneUp:
+                    PickedUpOneUp?.Invoke();
+                    break;
+                case PowerUpType.MissileRefill:
+                    numMissiles += 5;
+                    break;
+                case PowerUpType.ShieldRefill:
+                    shield.SetActive(true);
+                    shieldTimer = 3f;
+                    break;
+                case PowerUpType.SpreadShot:
+                    break;
+                case PowerUpType.RapidShot:
+                    if (shootInternal > 0.1f) shootInternal -= 0.05f;
+                    break;
+                default:
+                    throw new System.ArgumentException("Unknown power up type: " + properties.type);
+            }
+            Destroy(other.gameObject);
         }
     }
 }

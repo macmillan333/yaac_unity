@@ -208,7 +208,7 @@ MonoBehaviour:
   missilePrefab: {fileID: 3553381165358352410, guid: f3be25d3e4a433a44b13404da24f14d2,
     type: 3}
   missileSpeed: 10
-  shootInternal: 0.15
+  shootInternal: 0.3
   numMissiles: 0
   shield: {fileID: 5572628459890419817}
   shieldDuration: 3

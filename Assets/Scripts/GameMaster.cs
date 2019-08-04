@@ -51,6 +51,7 @@ public class GameMaster : MonoBehaviour
         SpawnInitialAsteroids();
         SpawnShip();
         ShipControl.ShipDestroyed += OnShipDestroyed;
+        ShipControl.PickedUpOneUp += OnPickedUpOneUp;
     }
 
     private void SpawnInitialAsteroids()
@@ -96,5 +97,10 @@ public class GameMaster : MonoBehaviour
     {
         ship_ = null;
         StartCoroutine(WaitAndMaybeRespawnShip());
+    }
+
+    private void OnPickedUpOneUp()
+    {
+        lives++;
     }
 }
