@@ -6,8 +6,7 @@ public class WarpBorder : MonoBehaviour
 {
     // Actually it's extent. Half of scale.
     public static Vector3 borderSize;
-
-    // Start is called before the first frame update
+    
     void Awake()
     {
         borderSize = new Vector3(

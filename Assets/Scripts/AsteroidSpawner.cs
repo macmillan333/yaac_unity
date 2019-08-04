@@ -67,7 +67,6 @@ public class AsteroidSpawner : MonoBehaviour
         return locations;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         // Spawn `numInitialAsteroids` top-level asteroids. Their positions should be carefully chosen so that:

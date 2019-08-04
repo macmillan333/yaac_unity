@@ -11,14 +11,12 @@ public class Missile : MonoBehaviour
 
     private const int findTargetInterval = 10;
     private int findTargetCounter;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         findTargetCounter = 0;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         Vector3 direction = GetComponent<Rigidbody>().velocity.normalized;

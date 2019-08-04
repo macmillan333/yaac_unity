@@ -16,8 +16,7 @@ public class Asteroid : MonoBehaviour
         this.allProperties = properties;
         this.level = level;
     }
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         AsteroidProperties properties = allProperties[level];
@@ -33,8 +32,7 @@ public class Asteroid : MonoBehaviour
         Vector3 axis = Random.onUnitSphere;
         GetComponent<Rigidbody>().AddTorque(axis * speed * 100f);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         

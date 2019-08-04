@@ -7,8 +7,9 @@ public class GameMaster : MonoBehaviour
 {
     public GameObject shipPrefab;
     public int lives;
-
-    // Start is called before the first frame update
+    private GameObject ship_;
+    public GameObject ship { get { return ship_; } }
+    
     void Start()
     {
         SpawnShip();
@@ -17,7 +18,7 @@ public class GameMaster : MonoBehaviour
 
     private void SpawnShip()
     {
-        Instantiate(shipPrefab);
+        ship_ = Instantiate(shipPrefab);
     }
 
     private IEnumerator WaitAndMaybeRespawnShip()
@@ -37,6 +38,7 @@ public class GameMaster : MonoBehaviour
 
     private void OnShipDestroyed()
     {
+        ship_ = null;
         StartCoroutine(WaitAndMaybeRespawnShip());
     }
 }

@@ -11,22 +11,35 @@ public class ShipControl : MonoBehaviour
     public float bulletSpeed;
     public GameObject missilePrefab;
     public float missileSpeed;
-    [Tooltip("Can fire 1 bullet per this many frames.")]
-    public int shootInternal;
+    [Tooltip("Can fire 1 bullet per this many seconds.")]
+    public float shootInternal;
     public int numMissiles;
-    private int frameOfLastShot;
+    private float timeOfLastShot;
+    public GameObject shield;
+    public float shieldDuration;
+    private float shieldTimer;
 
     public static event Delegates.Void ShipDestroyed;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
-        frameOfLastShot = -shootInternal;
+        timeOfLastShot = -shootInternal;
+        shieldTimer = shieldDuration;
+        shield.SetActive(true);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
+        // Shield
+        if (shield.activeSelf)
+        {
+            shieldTimer -= Time.deltaTime;
+            if (shieldTimer <= 0f)
+            {
+                shield.SetActive(false);
+            }
+        }
+
         // Turn
         float horizontal = Input.GetAxis("Horizontal");
         GetComponent<Rigidbody>().AddTorque(0f, horizontal * torque, 0f);
@@ -41,9 +54,9 @@ public class ShipControl : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(facingDirection * vertical * thrust);
 
         // Shoot
-        if (Input.GetButton("Fire") && Time.frameCount >= frameOfLastShot + shootInternal)
+        if (Input.GetButton("Fire") && Time.timeSinceLevelLoad >= timeOfLastShot + shootInternal)
         {
-            frameOfLastShot = Time.frameCount;
+            timeOfLastShot = Time.timeSinceLevelLoad;
             if (numMissiles > 0)
             {
                 ShootMissile(facingDirection);
@@ -72,7 +85,8 @@ public class ShipControl : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.gameObject.layer == LayerMask.NameToLayer("Asteroid"))
+        if (collision.transform.gameObject.layer == LayerMask.NameToLayer("Asteroid") &&
+            !shield.activeSelf)
         {
             ShipDestroyed?.Invoke();
             Destroy(gameObject);
