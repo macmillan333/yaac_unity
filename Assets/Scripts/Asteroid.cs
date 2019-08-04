@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    private List<AsteroidProperties> allProperties;
+    private List<AsteroidProperties> allProperties
+    {
+        get { return GameMaster.instance.asteroidProperties; }
+    }
     // Index into |properties|.
     private int level;
 
     private int maxHp;
     private int hp;
 
-    public void SetProperties(List<AsteroidProperties> properties, int level)
+    public void SetLevel(int level)
     {
-        this.allProperties = properties;
         this.level = level;
     }
     
@@ -55,6 +57,12 @@ public class Asteroid : MonoBehaviour
                 {
                     SpawnNextLevelAsteroids();
                 }
+                if (Random.value <= GameMaster.instance.powerUpDropRate)
+                {
+                    GameObject medal = Instantiate(GameMaster.instance.powerUpMedalPrefab);
+                    medal.transform.position = transform.position;
+                    // It's up to the medal itself to decide its type.
+                }
                 Destroy(gameObject);
             }
         }
@@ -74,7 +82,7 @@ public class Asteroid : MonoBehaviour
             GameObject asteroid = Instantiate(gameObject);
             asteroid.transform.position = l;
             asteroid.transform.localScale = new Vector3(nextDiameter, nextDiameter, nextDiameter);
-            asteroid.GetComponent<Asteroid>().SetProperties(allProperties, level + 1);
+            asteroid.GetComponent<Asteroid>().SetLevel(level + 1);
         }
     }
 }

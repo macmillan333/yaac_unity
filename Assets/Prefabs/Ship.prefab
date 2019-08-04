@@ -209,7 +209,7 @@ MonoBehaviour:
     type: 3}
   missileSpeed: 10
   shootInternal: 0.15
-  numMissiles: 3
+  numMissiles: 0
   shield: {fileID: 5572628459890419817}
   shieldDuration: 3
 --- !u!1 &5572628459890419817

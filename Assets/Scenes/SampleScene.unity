@@ -184,7 +184,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &205865162
 GameObject:
@@ -280,7 +280,7 @@ RectTransform:
   - {fileID: 1890020411}
   - {fileID: 778769492}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -381,65 +381,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409320681}
   m_CullTransparentMesh: 0
---- !u!1 &472919550
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 472919552}
-  - component: {fileID: 472919551}
-  m_Layer: 0
-  m_Name: Asteroid Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &472919551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472919550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba9798f6822f06469de79a9bc2d13e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 6313821594316085924, guid: b42eaec03af287944914c1ae580a2a35,
-    type: 3}
-  asteroidProperties:
-  - maxHp: 5
-    size: 10
-    maxSpeed: 1
-    numSplits: 2
-  - maxHp: 3
-    size: 5
-    maxSpeed: 3
-    numSplits: 5
-  - maxHp: 1
-    size: 1
-    maxSpeed: 5
-    numSplits: 0
-  numInitialAsteroids: 2
---- !u!4 &472919552
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472919550}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +735,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1438749326
 MonoBehaviour:
@@ -808,9 +749,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b0c2a3d8f3ca74eb4c365ba4ac3ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  asteroidPrefab: {fileID: 6313821594316085924, guid: b42eaec03af287944914c1ae580a2a35,
+    type: 3}
+  asteroidProperties:
+  - maxHp: 5
+    size: 10
+    maxSpeed: 1
+    numSplits: 2
+  - maxHp: 4
+    size: 6
+    maxSpeed: 3
+    numSplits: 5
+  - maxHp: 2
+    size: 2
+    maxSpeed: 5
+    numSplits: 0
+  numInitialAsteroids: 2
   shipPrefab: {fileID: 4869281893911607617, guid: 0a1f1b23eeea55c46a9049ca5ad36378,
     type: 3}
   lives: 3
+  powerUpMedalPrefab: {fileID: 708439315216735861, guid: 31c4daa4972604645977ff07ca96a7b9,
+    type: 3}
+  powerUpDropRate: 0.05
+  powerUpProperties:
+  - type: 0
+    material: {fileID: 2100000, guid: 20de2653289dd0e45af5967dcba3f516, type: 2}
+    spawnChance: 5
+    effectText: 1 UP
+  - type: 1
+    material: {fileID: 2100000, guid: 1e03be58d5a65184d925fc8e84ef1337, type: 2}
+    spawnChance: 20
+    effectText: MISSILES
+  - type: 2
+    material: {fileID: 2100000, guid: 0d53f840043feb047ae953e615db8f50, type: 2}
+    spawnChance: 20
+    effectText: SHIELD
+  - type: 3
+    material: {fileID: 2100000, guid: fefaa55e64cce974ea4149960f4b8d44, type: 2}
+    spawnChance: 10
+    effectText: SPREAD SHOT
+  - type: 4
+    material: {fileID: 2100000, guid: bd50d118887625b4598475e9470e5b59, type: 2}
+    spawnChance: 10
+    effectText: RAPID SHOT
 --- !u!1 &1442773440
 GameObject:
   m_ObjectHideFlags: 0
