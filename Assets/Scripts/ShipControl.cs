@@ -13,6 +13,8 @@ public class ShipControl : MonoBehaviour
     public float missileSpeed;
     [Tooltip("Can fire 1 bullet per this many seconds.")]
     public float shootInternal;
+    [Tooltip("Fires this many bullets at once.")]
+    public int numSpreads;
     public int numMissiles;
     private float timeOfLastShot;
     public GameObject shield;
@@ -72,9 +74,20 @@ public class ShipControl : MonoBehaviour
 
     private void ShootBullet(Vector3 direction)
     {
-        GameObject bullet = Instantiate(bulletPrefab);
-        bullet.transform.position = bulletSpawnPoint.position;
-        bullet.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
+        // Spread shot! All angles in degrees.
+        float centerAngle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
+        const float angleBetweenSpread = 10f;
+        float startAngle = centerAngle - angleBetweenSpread * 0.5f * (numSpreads - 1);
+        for (int i = 0; i < numSpreads; i++)
+        {
+            float angle = startAngle + i * angleBetweenSpread;
+            float angleInRadian = angle * Mathf.Deg2Rad;
+            Vector3 thisDirection = new Vector3(
+                Mathf.Cos(angleInRadian), 0f, Mathf.Sin(angleInRadian));
+            GameObject bullet = Instantiate(bulletPrefab);
+            bullet.transform.position = bulletSpawnPoint.position;
+            bullet.GetComponent<Rigidbody>().velocity = thisDirection * bulletSpeed;
+        }
     }
 
     private void ShootMissile(Vector3 direction)
@@ -112,6 +125,7 @@ public class ShipControl : MonoBehaviour
                     shieldTimer = 3f;
                     break;
                 case PowerUpType.SpreadShot:
+                    if (numSpreads <= 3) numSpreads++;
                     break;
                 case PowerUpType.RapidShot:
                     if (shootInternal > 0.1f) shootInternal -= 0.05f;

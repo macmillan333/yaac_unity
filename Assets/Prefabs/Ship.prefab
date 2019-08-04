@@ -209,6 +209,7 @@ MonoBehaviour:
     type: 3}
   missileSpeed: 10
   shootInternal: 0.3
+  numSpreads: 1
   numMissiles: 0
   shield: {fileID: 5572628459890419817}
   shieldDuration: 3
@@ -223,7 +224,8 @@ GameObject:
   - component: {fileID: 3878141185700888249}
   - component: {fileID: 1158561355960100961}
   - component: {fileID: 176366883135374591}
-  m_Layer: 12
+  - component: {fileID: 3134652900902784700}
+  m_Layer: 13
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,3 +292,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &3134652900902784700
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5572628459890419817}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Center: {x: 0, y: 0, z: 0}
