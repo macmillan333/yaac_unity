@@ -16,11 +16,12 @@ public class ShipControl : MonoBehaviour
     public int numMissiles;
     private int frameOfLastShot;
 
+    public static event Delegates.Void ShipDestroyed;
+
     // Start is called before the first frame update
     void Start()
     {
         frameOfLastShot = -shootInternal;
-        numMissiles = 999;
     }
 
     // Update is called once per frame
@@ -67,5 +68,14 @@ public class ShipControl : MonoBehaviour
         GameObject missile = Instantiate(missilePrefab);
         missile.transform.position = bulletSpawnPoint.position;
         missile.GetComponent<Rigidbody>().velocity = direction * missileSpeed;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.gameObject.layer == LayerMask.NameToLayer("Asteroid"))
+        {
+            ShipDestroyed?.Invoke();
+            Destroy(gameObject);
+        }
     }
 }
