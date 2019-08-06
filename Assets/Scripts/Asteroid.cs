@@ -27,7 +27,7 @@ public class Asteroid : MonoBehaviour
         maxHp = properties.maxHp;
         hp = maxHp;
 
-        float speed = Random.value * properties.maxSpeed;
+        float speed = (Random.value * 0.5f + 0.5f) * properties.maxSpeed;
         float angle = Random.value * Mathf.PI * 2f;
         GetComponent<Rigidbody>().velocity = new Vector3(
             Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * speed;

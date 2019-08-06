@@ -20,6 +20,8 @@ public class ShipControl : MonoBehaviour
     public GameObject shield;
     public float shieldDuration;
     private float shieldTimer;
+    public AudioSource bulletSound;
+    public AudioSource missileSound;
     public GameObject powerUpPickUpEffect;
 
     public static event Delegates.Void ShipDestroyed;
@@ -75,6 +77,8 @@ public class ShipControl : MonoBehaviour
 
     private void ShootBullet(Vector3 direction)
     {
+        bulletSound.Play();
+
         // Spread shot! All angles in degrees.
         float centerAngle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
         const float angleBetweenSpread = 10f;
@@ -93,6 +97,8 @@ public class ShipControl : MonoBehaviour
 
     private void ShootMissile(Vector3 direction)
     {
+        missileSound.Play();
+
         GameObject missile = Instantiate(missilePrefab);
         missile.transform.position = bulletSpawnPoint.position;
         missile.GetComponent<Rigidbody>().velocity = direction * missileSpeed;
@@ -134,7 +140,9 @@ public class ShipControl : MonoBehaviour
                 default:
                     throw new System.ArgumentException("Unknown power up type: " + properties.type);
             }
-            Instantiate(powerUpPickUpEffect).transform.position = other.transform.position;
+            GameObject pickUpEffect = Instantiate(powerUpPickUpEffect);
+            pickUpEffect.transform.position = other.transform.position;
+            pickUpEffect.GetComponentInChildren<TextMesh>().text = properties.effectText;
             Destroy(other.gameObject);
         }
     }
