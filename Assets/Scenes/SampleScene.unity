@@ -593,8 +593,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0
-  far clip plane: 20
+  near clip plane: -10
+  far clip plane: 10
   field of view: 60
   orthographic: 1
   orthographic size: 10
@@ -621,7 +621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -716,6 +716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1438749325}
   - component: {fileID: 1438749326}
+  - component: {fileID: 1438749327}
   m_Layer: 0
   m_Name: Game Master
   m_TagString: Untagged
@@ -775,7 +776,7 @@ MonoBehaviour:
   - type: 0
     material: {fileID: 2100000, guid: 20de2653289dd0e45af5967dcba3f516, type: 2}
     spawnChance: 5
-    effectText: 1 UP
+    effectText: 1-UP
   - type: 1
     material: {fileID: 2100000, guid: 1e03be58d5a65184d925fc8e84ef1337, type: 2}
     spawnChance: 20
@@ -787,11 +788,24 @@ MonoBehaviour:
   - type: 3
     material: {fileID: 2100000, guid: fefaa55e64cce974ea4149960f4b8d44, type: 2}
     spawnChance: 10
-    effectText: SPREAD SHOT
+    effectText: SPREAD
   - type: 4
     material: {fileID: 2100000, guid: bd50d118887625b4598475e9470e5b59, type: 2}
     spawnChance: 10
-    effectText: RAPID SHOT
+    effectText: RAPID
+--- !u!114 &1438749327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438749324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39eb148a5a813534d84574a400bbf1ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6172056759453018976, guid: 48fca9d5d5554584cb80c0ced0e791d6, type: 3}
 --- !u!1 &1442773440
 GameObject:
   m_ObjectHideFlags: 0

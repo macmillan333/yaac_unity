@@ -14,6 +14,8 @@ public class Asteroid : MonoBehaviour
     private int maxHp;
     private int hp;
 
+    public GameObject explosionPrefab;
+
     public void SetLevel(int level)
     {
         this.level = level;
@@ -63,6 +65,10 @@ public class Asteroid : MonoBehaviour
                     medal.transform.position = transform.position;
                     // It's up to the medal itself to decide its type.
                 }
+                GameObject explosion = Instantiate(explosionPrefab);
+                explosion.transform.position = transform.position;
+                float scale = transform.localScale.x * 0.1f;
+                explosion.transform.localScale = new Vector3(scale, scale, scale);
                 Destroy(gameObject);
             }
         }

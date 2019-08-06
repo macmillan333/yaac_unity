@@ -20,6 +20,7 @@ public class ShipControl : MonoBehaviour
     public GameObject shield;
     public float shieldDuration;
     private float shieldTimer;
+    public GameObject powerUpPickUpEffect;
 
     public static event Delegates.Void ShipDestroyed;
     public static event Delegates.Void PickedUpOneUp;
@@ -133,6 +134,7 @@ public class ShipControl : MonoBehaviour
                 default:
                     throw new System.ArgumentException("Unknown power up type: " + properties.type);
             }
+            Instantiate(powerUpPickUpEffect).transform.position = other.transform.position;
             Destroy(other.gameObject);
         }
     }
