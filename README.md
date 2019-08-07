@@ -42,4 +42,22 @@ Assets/Sfx/MissileHit.wav
 Assets/Fonts/Blinker
 	"Blinker", by Juergen Huber, Open Font License
 	https://fonts.google.com/specimen/Blinker?selection.family=Blinker
+Assets/Sprites/Background/Cosmos.jpg
+	By Pexels, Pixabay License, unmodified
+	https://pixabay.com/photos/cosmos-dark-hd-wallpaper-milky-way-1853491/
+Assets/Sprites/Background/Earth.jpg
+	By qimono, Pixabay License, unmodified
+	https://pixabay.com/photos/earth-globe-moon-world-planet-1365995/
+Assets/Sprites/Background/NorthernLights.jpg
+	By Hans, Pixabay License, unmodified
+	https://pixabay.com/photos/northern-lights-aurora-3273425/
+Assets/Sprites/Background/OrionNebula.jpg
+	By WikiImages, Pixabay License, unmodified
+	https://pixabay.com/photos/orion-nebula-emission-nebula-11107/
+Assets/Sprites/Background/Sky.jpg
+	By Free-Photos, Pixabay License, unmodified
+	https://pixabay.com/photos/sky-stars-constellations-astronomy-828648/
+Assets/Sprites/Background/SolarSystem.jpg
+	By WikiImages, Pixabay License, unmodified
+	https://pixabay.com/photos/solar-system-big-bang-11188/
 TODO: menu sounds select, confirm, cancel

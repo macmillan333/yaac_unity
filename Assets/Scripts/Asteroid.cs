@@ -6,10 +6,10 @@ public class Asteroid : MonoBehaviour
 {
     private List<AsteroidProperties> allProperties
     {
-        get { return GameMaster.instance.asteroidProperties; }
+        get { return GameMaster.instance.GetCurrentLevel().asteroidProperties; }
     }
     // Index into |properties|.
-    private int level;
+    private int tier;
 
     private int maxHp;
     private int hp;
@@ -19,16 +19,19 @@ public class Asteroid : MonoBehaviour
     public GameObject bulletSparkPrefab;
     public GameObject missileSparkPrefab;
 
-    public void SetLevel(int level)
+    public static int count;
+
+    public void SetTier(int tier)
     {
-        this.level = level;
+        this.tier = tier;
     }
     
     void Start()
     {
-        AsteroidProperties properties = allProperties[level];
+        AsteroidProperties properties = allProperties[tier];
         maxHp = properties.maxHp;
         hp = maxHp;
+        count++;
 
         float speed = (Random.value * 0.5f + 0.5f) * properties.maxSpeed;
         float angle = Random.value * Mathf.PI * 2f;
@@ -79,9 +82,9 @@ public class Asteroid : MonoBehaviour
             Destroy(other.gameObject);
             if (hp <= 0)
             {
-                if (level < allProperties.Count - 1)
+                if (tier < allProperties.Count - 1)
                 {
-                    SpawnNextLevelAsteroids();
+                    SpawnNextTierAsteroids();
                 }
                 if (Random.value <= GameMaster.instance.powerUpDropRate)
                 {
@@ -98,13 +101,13 @@ public class Asteroid : MonoBehaviour
         }
     }
 
-    private void SpawnNextLevelAsteroids()
+    private void SpawnNextTierAsteroids()
     {
-        AsteroidProperties thisProperties = allProperties[level];
+        AsteroidProperties thisProperties = allProperties[tier];
         Vector3 min = transform.position - transform.localScale * 0.5f;
         Vector3 max = transform.position + transform.localScale * 0.5f;
         int number = thisProperties.numSplits;
-        float nextDiameter = allProperties[level + 1].size;
+        float nextDiameter = allProperties[tier + 1].size;
 
         foreach (Vector3 l in AsteroidSpawner.FindSpawnLocations(min, max, number,
             nextDiameter, 0f))
@@ -112,7 +115,12 @@ public class Asteroid : MonoBehaviour
             GameObject asteroid = Instantiate(gameObject);
             asteroid.transform.position = l;
             asteroid.transform.localScale = new Vector3(nextDiameter, nextDiameter, nextDiameter);
-            asteroid.GetComponent<Asteroid>().SetLevel(level + 1);
+            asteroid.GetComponent<Asteroid>().SetTier(tier + 1);
         }
+    }
+
+    private void OnDestroy()
+    {
+        count--;
     }
 }

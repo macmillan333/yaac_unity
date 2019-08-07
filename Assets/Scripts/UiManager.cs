@@ -7,6 +7,7 @@ public class UiManager : MonoBehaviour
 {
     public Text livesText;
     public Text missileText;
+    public Text remainingAsteroidText;
     public GameMaster gameMaster;
     
     void Start()
@@ -22,5 +23,6 @@ public class UiManager : MonoBehaviour
         {
             missileText.text = ship.GetComponent<ShipControl>().numMissiles.ToString();
         }
+        remainingAsteroidText.text = Asteroid.count.ToString();
     }
 }

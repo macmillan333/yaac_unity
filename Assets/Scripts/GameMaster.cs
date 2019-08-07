@@ -20,9 +20,17 @@ public class AsteroidProperties
     public float size;
     [Tooltip("When spawned, the asteroid is given a random velocity that does not exceed this amount.")]
     public float maxSpeed;
-    [Tooltip("When destroyed, spawns this many next-level Asteroids."
-        + " The final level asteroid does not split further, and thus ignores this number.")]
+    [Tooltip("When destroyed, spawns this many next-tier Asteroids."
+        + " The final tier asteroid does not split further, and thus ignores this number.")]
     public int numSplits;
+}
+
+[System.Serializable]
+public class Level
+{
+    public Sprite background;
+    public List<AsteroidProperties> asteroidProperties;
+    public int numInitialAsteroids;
 }
 
 // The always-alive enforcer of game rules. Manages player lives and stuff.
@@ -31,8 +39,8 @@ public class GameMaster : MonoBehaviour
     public static GameMaster instance;
 
     public GameObject asteroidPrefab;
-    public List<AsteroidProperties> asteroidProperties;
-    public int numInitialAsteroids;
+    public List<Level> levels;
+    private int currentLevel;
 
     public GameObject shipPrefab;
     public int lives;
@@ -48,28 +56,36 @@ public class GameMaster : MonoBehaviour
     {
         instance = this;
 
+        currentLevel = 0;
+
         SpawnInitialAsteroids();
         SpawnShip();
         ShipControl.ShipDestroyed += OnShipDestroyed;
         ShipControl.PickedUpOneUp += OnPickedUpOneUp;
     }
 
+    public Level GetCurrentLevel()
+    {
+        return levels[currentLevel];
+    }
+
     private void SpawnInitialAsteroids()
     {
-        // Spawn `numInitialAsteroids` top-level asteroids. Their positions should be carefully chosen so that:
+        Level level = levels[currentLevel];
+        // Spawn `numInitialAsteroids` top-tier asteroids. Their positions should be carefully chosen so that:
         // - they don't collide with each other
         // - they areat least 5 units away from player ship
-        float diameter = asteroidProperties[0].size;
+        float diameter = level.asteroidProperties[0].size;
         List<Vector3> spawnedLocations = AsteroidSpawner.FindSpawnLocations(
             -WarpBorder.borderSize, WarpBorder.borderSize,
-            numInitialAsteroids, diameter, diameter * 0.5f + 5f);
+            level.numInitialAsteroids, diameter, diameter * 0.5f + 5f);
 
         foreach (Vector3 l in spawnedLocations)
         {
             GameObject asteroid = Instantiate(asteroidPrefab);
             asteroid.transform.position = l;
             asteroid.transform.localScale = new Vector3(diameter, diameter, diameter);
-            asteroid.GetComponent<Asteroid>().SetLevel(0);
+            asteroid.GetComponent<Asteroid>().SetTier(0);
         }
     }
 
