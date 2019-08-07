@@ -210,14 +210,15 @@ MonoBehaviour:
   missilePrefab: {fileID: 3553381165358352410, guid: f3be25d3e4a433a44b13404da24f14d2,
     type: 3}
   missileSpeed: 10
-  shootInternal: 0.3
-  numSpreads: 1
+  shootInterval: 0.3
   numMissiles: 0
   shield: {fileID: 5572628459890419817}
-  shieldDuration: 3
+  shieldDuration: 300
   bulletSound: {fileID: 6394831471814649715}
   missileSound: {fileID: 592208504326837}
   powerUpPickUpEffect: {fileID: 7869938877392179198, guid: 0a0bc020c4b7a0d459f94d060ebadf01,
+    type: 3}
+  explosionEffect: {fileID: 6172056759453018976, guid: bbb7f36f286454345a1829586f8290e9,
     type: 3}
 --- !u!82 &6394831471814649715
 AudioSource:

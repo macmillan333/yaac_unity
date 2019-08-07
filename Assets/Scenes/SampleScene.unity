@@ -771,7 +771,7 @@ MonoBehaviour:
   lives: 3
   powerUpMedalPrefab: {fileID: 708439315216735861, guid: 31c4daa4972604645977ff07ca96a7b9,
     type: 3}
-  powerUpDropRate: 0.614
+  powerUpDropRate: 0.1
   powerUpProperties:
   - type: 0
     material: {fileID: 2100000, guid: 20de2653289dd0e45af5967dcba3f516, type: 2}
@@ -805,7 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39eb148a5a813534d84574a400bbf1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6172056759453018976, guid: 48fca9d5d5554584cb80c0ced0e791d6, type: 3}
+  prefab: {fileID: 6172056759453018976, guid: bbb7f36f286454345a1829586f8290e9, type: 3}
 --- !u!1 &1442773440
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,10 @@ public class Asteroid : MonoBehaviour
     private int maxHp;
     private int hp;
 
+    public GameObject clashPrefab;
     public GameObject explosionPrefab;
+    public GameObject bulletSparkPrefab;
+    public GameObject missileSparkPrefab;
 
     public void SetLevel(int level)
     {
@@ -36,22 +39,43 @@ public class Asteroid : MonoBehaviour
         Vector3 axis = Random.onUnitSphere;
         GetComponent<Rigidbody>().AddTorque(axis * speed * 100f);
     }
-    
-    void Update()
+
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        System.Action spawnClashPrefab = () =>
+        {
+            Instantiate(clashPrefab).transform.position = collision.GetContact(0).point;
+        };
+        // When 2 asteroids clash, only 1 of them should spawn the Prefab.
+        if ((collision.gameObject.layer == LayerMask.NameToLayer("Asteroid")) &&
+            (gameObject.GetInstanceID() < collision.gameObject.GetInstanceID()))
+        {
+            spawnClashPrefab();
+        }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ship"))  // I don't understand why this isn't "Shield"
+        {
+            spawnClashPrefab();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
-            int damage = 1;
+            int damage = 0;
+            GameObject spark;
             if (other.gameObject.GetComponent<Missile>() != null)
             {
                 damage = other.gameObject.GetComponent<Missile>().power;
+                spark = missileSparkPrefab;
+            }
+            else
+            {
+                damage = 1;
+                spark = bulletSparkPrefab;
             }
             hp -= damage;
+            Instantiate(spark).transform.position = other.transform.position;
             Destroy(other.gameObject);
             if (hp <= 0)
             {

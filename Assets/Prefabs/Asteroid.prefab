@@ -135,5 +135,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535da99bda2611b44a2e6c848f7ee32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clashPrefab: {fileID: 6172056759453018976, guid: ecfc20a7345557540a7a49a376a01abf,
+    type: 3}
   explosionPrefab: {fileID: 6172056759453018976, guid: 48fca9d5d5554584cb80c0ced0e791d6,
+    type: 3}
+  bulletSparkPrefab: {fileID: 6172056759453018976, guid: 1c505fe0100143c40a5bb3227d5f61cd,
+    type: 3}
+  missileSparkPrefab: {fileID: 6172056759453018976, guid: 90fb2c31738deda44895e40db4964055,
     type: 3}

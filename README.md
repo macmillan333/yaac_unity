@@ -33,5 +33,13 @@ Assets/Sfx/ShootMissile.wav
 Assets/Sfx/GameStart.wav
 	"introgui.wav", by pera, Creative Commons 0 License, unmodified
 	https://freesound.org/people/pera/sounds/56231/
+Assets/Sfx/BulletHit.wav
+	"Sticks in dirt 2.wav", by worthahep88, Creative Commons 0 License, trimmed
+	https://freesound.org/people/worthahep88/sounds/319214/
+Assets/Sfx/MissileHit.wav
+	"Fireworks", by MrAuralization, Attribution License, trimmed
+	https://freesound.org/people/MrAuralization/sounds/212677/
+Assets/Fonts/Blinker
+	"Blinker", by Juergen Huber, Open Font License
+	https://fonts.google.com/specimen/Blinker?selection.family=Blinker
 TODO: menu sounds select, confirm, cancel
-TODO: Unity doesn't allow Standard Assets on GitHub (https://forum.unity.com/threads/standard-asset-on-github.447176/). Seek alternative for VFX.

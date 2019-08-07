@@ -12,9 +12,9 @@ public class ShipControl : MonoBehaviour
     public GameObject missilePrefab;
     public float missileSpeed;
     [Tooltip("Can fire 1 bullet per this many seconds.")]
-    public float shootInternal;
-    [Tooltip("Fires this many bullets at once.")]
-    public int numSpreads;
+    public float shootInterval;
+    private int numSpreads;
+    private int numRapids;
     public int numMissiles;
     private float timeOfLastShot;
     public GameObject shield;
@@ -23,15 +23,19 @@ public class ShipControl : MonoBehaviour
     public AudioSource bulletSound;
     public AudioSource missileSound;
     public GameObject powerUpPickUpEffect;
+    public GameObject explosionEffect;
 
     public static event Delegates.Void ShipDestroyed;
     public static event Delegates.Void PickedUpOneUp;
     
     void Start()
     {
-        timeOfLastShot = -shootInternal;
+        timeOfLastShot = -shootInterval;
         shieldTimer = shieldDuration;
         shield.SetActive(true);
+
+        numSpreads = 1;
+        numRapids = 0;
     }
     
     void Update()
@@ -60,7 +64,8 @@ public class ShipControl : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(facingDirection * vertical * thrust);
 
         // Shoot
-        if (Input.GetButton("Fire") && Time.timeSinceLevelLoad >= timeOfLastShot + shootInternal)
+        float effectiveShootInterval = shootInterval - numRapids * 0.05f;
+        if (Input.GetButton("Fire") && Time.timeSinceLevelLoad >= timeOfLastShot + effectiveShootInterval)
         {
             timeOfLastShot = Time.timeSinceLevelLoad;
             if (numMissiles > 0)
@@ -91,7 +96,8 @@ public class ShipControl : MonoBehaviour
                 Mathf.Cos(angleInRadian), 0f, Mathf.Sin(angleInRadian));
             GameObject bullet = Instantiate(bulletPrefab);
             bullet.transform.position = bulletSpawnPoint.position;
-            bullet.GetComponent<Rigidbody>().velocity = thisDirection * bulletSpeed;
+            float effectiveSpeed = bulletSpeed + numRapids * 2f;
+            bullet.GetComponent<Rigidbody>().velocity = thisDirection * effectiveSpeed;
         }
     }
 
@@ -110,6 +116,7 @@ public class ShipControl : MonoBehaviour
             !shield.activeSelf)
         {
             ShipDestroyed?.Invoke();
+            Instantiate(explosionEffect).transform.position = transform.position;
             Destroy(gameObject);
         }
     }
@@ -132,10 +139,10 @@ public class ShipControl : MonoBehaviour
                     shieldTimer = 3f;
                     break;
                 case PowerUpType.SpreadShot:
-                    if (numSpreads <= 3) numSpreads++;
+                    if (numSpreads < 3) numSpreads++;
                     break;
                 case PowerUpType.RapidShot:
-                    if (shootInternal > 0.1f) shootInternal -= 0.05f;
+                    if (numRapids < 3) numRapids++;
                     break;
                 default:
                     throw new System.ArgumentException("Unknown power up type: " + properties.type);
