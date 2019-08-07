@@ -8,7 +8,7 @@ public class Asteroid : MonoBehaviour
     {
         get { return GameMaster.instance.GetCurrentLevel().asteroidProperties; }
     }
-    // Index into |properties|.
+    // Index into |allProperties|.
     private int tier;
 
     private int maxHp;
@@ -20,6 +20,7 @@ public class Asteroid : MonoBehaviour
     public GameObject missileSparkPrefab;
 
     public static int count;
+    public static event Delegates.Void LastAsteroidDestroyed;
 
     public void SetTier(int tier)
     {
@@ -122,5 +123,9 @@ public class Asteroid : MonoBehaviour
     private void OnDestroy()
     {
         count--;
+        if (count == 0)
+        {
+            LastAsteroidDestroyed?.Invoke();
+        }
     }
 }

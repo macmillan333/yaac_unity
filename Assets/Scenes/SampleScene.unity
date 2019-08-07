@@ -907,6 +907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidPrefab: {fileID: 6313821594316085924, guid: b42eaec03af287944914c1ae580a2a35,
     type: 3}
+  background: {fileID: 2032775650}
   levels:
   - background: {fileID: 21300000, guid: 5538c6a06229d684288e7c9f23299544, type: 3}
     asteroidProperties:
@@ -922,19 +923,35 @@ MonoBehaviour:
       size: 2
       maxSpeed: 5
       numSplits: 0
+    numInitialAsteroids: 1
+  - background: {fileID: 21300000, guid: 6e8cdd02f391bf24a923d236e9882fc6, type: 3}
+    asteroidProperties:
+    - maxHp: 1
+      size: 5
+      maxSpeed: 0
+      numSplits: 0
+    numInitialAsteroids: 1
+  - background: {fileID: 21300000, guid: 27521133e55cd4140b6bc4a6c8634283, type: 3}
+    asteroidProperties:
+    - maxHp: 1
+      size: 5
+      maxSpeed: 0
+      numSplits: 0
     numInitialAsteroids: 2
-  - background: {fileID: 0}
-    asteroidProperties: []
-    numInitialAsteroids: 0
-  - background: {fileID: 0}
-    asteroidProperties: []
-    numInitialAsteroids: 0
-  - background: {fileID: 0}
-    asteroidProperties: []
-    numInitialAsteroids: 0
-  - background: {fileID: 0}
-    asteroidProperties: []
-    numInitialAsteroids: 0
+  - background: {fileID: 21300000, guid: 70f6943ab15c8664abd9e0f2618b9be6, type: 3}
+    asteroidProperties:
+    - maxHp: 1
+      size: 5
+      maxSpeed: 0
+      numSplits: 0
+    numInitialAsteroids: 3
+  - background: {fileID: 21300000, guid: ec5192f79a3e0ff498a8e2596827169f, type: 3}
+    asteroidProperties:
+    - maxHp: 1
+      size: 5
+      maxSpeed: 0
+      numSplits: 0
+    numInitialAsteroids: 4
   shipPrefab: {fileID: 4869281893911607617, guid: 0a1f1b23eeea55c46a9049ca5ad36378,
     type: 3}
   lives: 3

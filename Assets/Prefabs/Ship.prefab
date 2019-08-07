@@ -213,7 +213,7 @@ MonoBehaviour:
   shootInterval: 0.3
   numMissiles: 0
   shield: {fileID: 5572628459890419817}
-  shieldDuration: 300
+  shieldDuration: 3
   bulletSound: {fileID: 6394831471814649715}
   missileSound: {fileID: 592208504326837}
   powerUpPickUpEffect: {fileID: 7869938877392179198, guid: 0a0bc020c4b7a0d459f94d060ebadf01,

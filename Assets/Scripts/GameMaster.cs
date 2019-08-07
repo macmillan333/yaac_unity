@@ -39,6 +39,7 @@ public class GameMaster : MonoBehaviour
     public static GameMaster instance;
 
     public GameObject asteroidPrefab;
+    public Background background;
     public List<Level> levels;
     private int currentLevel;
 
@@ -60,8 +61,10 @@ public class GameMaster : MonoBehaviour
 
         SpawnInitialAsteroids();
         SpawnShip();
+        background.ChangeBackground(GetCurrentLevel().background, immediate: true);
         ShipControl.ShipDestroyed += OnShipDestroyed;
         ShipControl.PickedUpOneUp += OnPickedUpOneUp;
+        Asteroid.LastAsteroidDestroyed += OnLastAsteroidDestroyed;
     }
 
     public Level GetCurrentLevel()
@@ -71,7 +74,7 @@ public class GameMaster : MonoBehaviour
 
     private void SpawnInitialAsteroids()
     {
-        Level level = levels[currentLevel];
+        Level level = GetCurrentLevel();
         // Spawn `numInitialAsteroids` top-tier asteroids. Their positions should be carefully chosen so that:
         // - they don't collide with each other
         // - they areat least 5 units away from player ship
@@ -118,5 +121,32 @@ public class GameMaster : MonoBehaviour
     private void OnPickedUpOneUp()
     {
         lives++;
+    }
+
+    private void OnLastAsteroidDestroyed()
+    {
+        StartCoroutine(WaitAndMaybeStartNextLevel());
+    }
+
+    private IEnumerator WaitAndMaybeStartNextLevel()
+    {
+        yield return new WaitForSeconds(2.0f);
+
+        if (currentLevel >= levels.Count - 1)
+        {
+            Debug.Log("All clear!");
+        }
+        else
+        {
+            Destroy(ship_);
+            // Go to next level
+            currentLevel++;
+            Level level = GetCurrentLevel();
+            background.ChangeBackground(level.background);
+
+            yield return new WaitForSeconds(1.0f);
+            SpawnShip();
+            SpawnInitialAsteroids();
+        }
     }
 }
