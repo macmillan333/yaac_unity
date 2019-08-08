@@ -32,7 +32,7 @@ public class PowerUpMedal : MonoBehaviour
     
     void Update()
     {
-        transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+        transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);  // deltaTime is affected by timeScale
     }
 
     private void Pick()

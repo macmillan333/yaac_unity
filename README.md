@@ -39,9 +39,14 @@ Assets/Sfx/BulletHit.wav
 Assets/Sfx/MissileHit.wav
 	"Fireworks", by MrAuralization, Attribution License, trimmed
 	https://freesound.org/people/MrAuralization/sounds/212677/
+
 Assets/Fonts/Blinker
 	"Blinker", by Juergen Huber, Open Font License
 	https://fonts.google.com/specimen/Blinker?selection.family=Blinker
+Assets/Fonts/Roboto
+	"Roboto", by Christian Robertson, Apache License Version 2.0
+	https://fonts.google.com/specimen/Roboto?selection.family=Roboto
+
 Assets/Sprites/Background/Cosmos.jpg
 	By Pexels, Pixabay License, unmodified
 	https://pixabay.com/photos/cosmos-dark-hd-wallpaper-milky-way-1853491/

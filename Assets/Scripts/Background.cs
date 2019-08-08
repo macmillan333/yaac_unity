@@ -58,7 +58,7 @@ public class Background : MonoBehaviour
         {
             float progress = time / fadeTime;
             SetAlpha(originalAlpha * (1f - progress));
-            time += Time.deltaTime;
+            time += Time.deltaTime;  // deltaTime is affected by timeScale
             yield return null;
         }
         SetAlpha(0f);
@@ -69,7 +69,7 @@ public class Background : MonoBehaviour
         {
             float progress = time / fadeTime;
             SetAlpha(originalAlpha * progress);
-            time += Time.deltaTime;
+            time += Time.deltaTime;  // deltaTime is affected by timeScale
             yield return null;
         }
         SetAlpha(originalAlpha);

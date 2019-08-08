@@ -16,7 +16,7 @@ public class ShipControl : MonoBehaviour
     private int numSpreads;
     private int numRapids;
     public int numMissiles;
-    private float timeOfLastShot;
+    private float timeUntilNextShot;
     public GameObject shield;
     public float shieldDuration;
     private float shieldTimer;
@@ -30,7 +30,7 @@ public class ShipControl : MonoBehaviour
     
     void Start()
     {
-        timeOfLastShot = -shootInterval;
+        timeUntilNextShot = 0f;
         shieldTimer = shieldDuration;
         shield.SetActive(true);
 
@@ -43,7 +43,7 @@ public class ShipControl : MonoBehaviour
         // Shield
         if (shield.activeSelf)
         {
-            shieldTimer -= Time.deltaTime;
+            shieldTimer -= Time.deltaTime;  // deltaTime is affected by timeScale
             if (shieldTimer <= 0f)
             {
                 shield.SetActive(false);
@@ -65,9 +65,13 @@ public class ShipControl : MonoBehaviour
 
         // Shoot
         float effectiveShootInterval = shootInterval - numRapids * 0.05f;
-        if (Input.GetButton("Fire") && Time.timeSinceLevelLoad >= timeOfLastShot + effectiveShootInterval)
+        if (timeUntilNextShot >= 0f)
         {
-            timeOfLastShot = Time.timeSinceLevelLoad;
+            timeUntilNextShot -= Time.deltaTime;  // deltaTime is affected by timeScale
+        }
+        if (Input.GetButton("Fire") && timeUntilNextShot <= 0f)
+        {
+            timeUntilNextShot = effectiveShootInterval;
             if (numMissiles > 0)
             {
                 ShootMissile(facingDirection);

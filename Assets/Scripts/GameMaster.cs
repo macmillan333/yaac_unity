@@ -67,6 +67,13 @@ public class GameMaster : MonoBehaviour
         Asteroid.LastAsteroidDestroyed += OnLastAsteroidDestroyed;
     }
 
+    private void OnDestroy()
+    {
+        ShipControl.ShipDestroyed -= OnShipDestroyed;
+        ShipControl.PickedUpOneUp -= OnPickedUpOneUp;
+        Asteroid.LastAsteroidDestroyed -= OnLastAsteroidDestroyed;
+    }
+
     public Level GetCurrentLevel()
     {
         return levels[currentLevel];
