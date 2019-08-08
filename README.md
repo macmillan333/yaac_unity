@@ -39,6 +39,12 @@ Assets/Sfx/BulletHit.wav
 Assets/Sfx/MissileHit.wav
 	"Fireworks", by MrAuralization, Attribution License, trimmed
 	https://freesound.org/people/MrAuralization/sounds/212677/
+Assets/Sfx/UI/ButtonHover.wav
+	"g_ui_button_hover_1.wav", by GameDevC, Attribution License, unmodified
+	https://freesound.org/people/GameDevC/sounds/422836/
+Assets/Sfx/UI/ButtonClick.wav
+	"click_01-fast.wav", by Qat, Creative Commons 0 License, unmodified
+	https://freesound.org/people/Qat/sounds/108336/
 
 Assets/Fonts/Blinker
 	"Blinker", by Juergen Huber, Open Font License
