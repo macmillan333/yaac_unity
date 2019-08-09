@@ -303,13 +303,14 @@ GameObject:
   - component: {fileID: 588795184}
   - component: {fileID: 588795186}
   - component: {fileID: 588795185}
+  - component: {fileID: 588795187}
   m_Layer: 5
   m_Name: Save Load Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &588795184
 RectTransform:
   m_ObjectHideFlags: 0
@@ -337,7 +338,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588795183}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -368,6 +369,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588795183}
   m_CullTransparentMesh: 0
+--- !u!114 &588795187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588795183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee68e7605b26af24baf12d1edfaa9ef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 588795185}
+  text: {fileID: 942937667}
 --- !u!1 &591188874
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +724,7 @@ GameObject:
   - component: {fileID: 942937666}
   - component: {fileID: 942937668}
   - component: {fileID: 942937667}
+  - component: {fileID: 942937669}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -733,7 +749,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -100, y: -100}
+  m_SizeDelta: {x: -100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &942937667
 MonoBehaviour:
@@ -742,7 +758,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942937665}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -766,9 +782,17 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'An error occurred when saving: blah blah blah blah blah'
+  m_Text: 'An error occurred when saving: blah blah blah blah blah
+
+    An error occurred when saving: blah blah blah blah blah
+
+    An error occurred when saving: blah blah blah blah blah
+
+    An error occurred when saving: blah blah blah blah blah
+
+    An error occurred when saving: blah blah blah blah blah'
 --- !u!222 &942937668
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -777,6 +801,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942937665}
   m_CullTransparentMesh: 0
+--- !u!114 &942937669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942937665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &1102406342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,6 +1279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc20e24bca093a54e9377bee48509249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveLoadPanel: {fileID: 588795187}
   introScreens:
   - subject: {fileID: 1102406342}
     stayTime: 2

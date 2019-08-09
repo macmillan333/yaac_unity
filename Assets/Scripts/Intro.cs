@@ -12,18 +12,20 @@ public class IntroScreen
 
 public class Intro : MonoBehaviour
 {
+    public SaveLoadPanel saveLoadPanel;
     public List<IntroScreen> introScreens;
     public float fadeTime;
     public float restTime;
 
     void Start()
     {
-        StartCoroutine(ShowIntros());
+        saveLoadPanel.StartLoad();
+        SaveLoadPanel.LoadComplete += OnLoadComplete;
     }
-    
-    void Update()
+
+    private void OnDestroy()
     {
-        
+        SaveLoadPanel.LoadComplete -= OnLoadComplete;
     }
 
     private void SetAlpha(Image image, Text text, float alpha)
@@ -81,5 +83,10 @@ public class Intro : MonoBehaviour
         }
 
         Debug.Log("Intro complete.");
+    }
+
+    private void OnLoadComplete()
+    {
+        StartCoroutine(ShowIntros());
     }
 }
