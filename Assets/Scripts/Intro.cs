@@ -3,8 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class IntroScreen
+{
+    public GameObject subject;
+    public float stayTime;
+}
+
 public class Intro : MonoBehaviour
 {
+    public List<IntroScreen> introScreens;
+    public float fadeTime;
+    public float restTime;
+
     void Start()
     {
         StartCoroutine(ShowIntros());
@@ -24,18 +35,21 @@ public class Intro : MonoBehaviour
 
     private IEnumerator ShowIntros()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        foreach (IntroScreen screen in introScreens)
         {
-            Image image = transform.GetChild(i).GetComponent<Image>();
-            Text text = transform.GetChild(i).GetComponent<Text>();
+            Image image = screen.subject.GetComponent<Image>();
+            Text text = screen.subject.GetComponent<Text>();
             SetAlpha(image, text, 0f);
         }
-        const float fadeTime = 1f;
-        const float stayTime = 4f;
-        for (int i = 0; i < transform.childCount; i++)
+
+        foreach (IntroScreen screen in introScreens)
         {
-            Image image = transform.GetChild(i).GetComponent<Image>();
-            Text text = transform.GetChild(i).GetComponent<Text>();
+            Image image = screen.subject.GetComponent<Image>();
+            Text text = screen.subject.GetComponent<Text>();
+
+            // Play sound if any
+            AudioSource audio = screen.subject.GetComponent<AudioSource>();
+            if (audio != null) audio.Play();
 
             // Fade in
             float timer = 0f;
@@ -49,7 +63,7 @@ public class Intro : MonoBehaviour
             SetAlpha(image, text, 1f);
 
             // Stay
-            yield return new WaitForSeconds(stayTime);
+            yield return new WaitForSeconds(screen.stayTime);
 
             // Fade out
             timer = 0f;
@@ -61,6 +75,9 @@ public class Intro : MonoBehaviour
                 yield return null;
             }
             SetAlpha(image, text, 0f);
+
+            // Rest
+            yield return new WaitForSeconds(restTime);
         }
 
         Debug.Log("Intro complete.");
