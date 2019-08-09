@@ -13,19 +13,43 @@ public class IntroScreen
 public class Intro : MonoBehaviour
 {
     public SaveLoadPanel saveLoadPanel;
+    public GameObject skipInfoPanel;
     public List<IntroScreen> introScreens;
     public float fadeTime;
     public float restTime;
+
+    private bool isShowingIntros;
 
     void Start()
     {
         saveLoadPanel.StartLoad();
         SaveLoadPanel.LoadComplete += OnLoadComplete;
+        isShowingIntros = false;
+    }
+
+    private void Update()
+    {
+        if (isShowingIntros && Input.GetButtonDown("Pause") && !skipInfoPanel.activeSelf)
+        {
+            if (ProfileManager.inMemoryProfile.canSkipIntro)
+            {
+                LoadNextScene();
+            }
+            else
+            {
+                skipInfoPanel.SetActive(true);
+            }
+        }
     }
 
     private void OnDestroy()
     {
         SaveLoadPanel.LoadComplete -= OnLoadComplete;
+    }
+
+    private void LoadNextScene()
+    {
+        Debug.Log("Should load next scene now.");
     }
 
     private void SetAlpha(Image image, Text text, float alpha)
@@ -82,11 +106,12 @@ public class Intro : MonoBehaviour
             yield return new WaitForSeconds(restTime);
         }
 
-        Debug.Log("Intro complete.");
+        LoadNextScene();
     }
 
     private void OnLoadComplete()
     {
+        isShowingIntros = true;
         StartCoroutine(ShowIntros());
     }
 }

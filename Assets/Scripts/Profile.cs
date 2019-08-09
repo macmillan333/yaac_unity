@@ -61,8 +61,8 @@ public static class ProfileManager
         inMemoryProfile = (Profile)formatter.Deserialize(stream);
         stream.Close();
 
-        Debug.Log("Profile:");
-        Debug.Log(inMemoryProfile.ToString());
+        // Apply overrides here if needed
+        inMemoryProfile.canSkipIntro = true;
     }
     
     public static void SaveToFile()
