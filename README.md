@@ -40,10 +40,12 @@ Assets/Sfx/MissileHit.wav
 	"Fireworks", by MrAuralization, Attribution License, trimmed
 	https://freesound.org/people/MrAuralization/sounds/212677/
 Assets/Sfx/UI/ButtonHover.wav
-	"g_ui_button_hover_1.wav", by GameDevC, Attribution License, unmodified
-	https://freesound.org/people/GameDevC/sounds/422836/
+	"Computer Beep SFX for Videogames", by qubodup, Creative Commons 0 License, unmodified
+	https://freesound.org/people/qubodup/sounds/140773/
 Assets/Sfx/UI/ButtonClick.wav
-	"click_01-fast.wav", by Qat, Creative Commons 0 License, unmodified
+Assets/Sfx/UI/DialogOpen.wav
+Assets/Sfx/UI/DialogClose.wav
+	"unfa's Menu Sounds", by unfa, Attribution License, trimmed
 	https://freesound.org/people/Qat/sounds/108336/
 
 Assets/Fonts/Blinker
