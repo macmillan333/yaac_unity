@@ -62,7 +62,7 @@ public static class ProfileManager
         stream.Close();
 
         // Apply overrides here if needed
-        inMemoryProfile.canSkipIntro = true;
+        // inMemoryProfile.canSkipIntro = true;
     }
     
     public static void SaveToFile()

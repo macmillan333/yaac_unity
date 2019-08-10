@@ -19,6 +19,8 @@ public class SaveLoadPanel : MonoBehaviour
 
     void Start()
     {
+        panel.enabled = true;
+        text.enabled = true;
         Hide();
     }
     
@@ -41,16 +43,16 @@ public class SaveLoadPanel : MonoBehaviour
 
     private void Show(string content)
     {
-        panel.enabled = true;
+        panel.gameObject.SetActive(true);
         text.text = content;
-        text.enabled = true;
+        text.gameObject.SetActive(true);
     }
 
     private void Hide()
     {
-        panel.enabled = false;
+        panel.gameObject.SetActive(false);
         text.text = "";
-        text.enabled = false;
+        text.gameObject.SetActive(false);
     }
 
     private IEnumerator SaveProcess()

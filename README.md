@@ -45,7 +45,7 @@ Assets/Sfx/UI/ButtonHover.wav
 Assets/Sfx/UI/ButtonClick.wav
 Assets/Sfx/UI/DialogOpen.wav
 Assets/Sfx/UI/DialogClose.wav
-	"unfa's Menu Sounds", by unfa, Attribution License, trimmed
+	"unfa's Menu Sounds", by unfa, Attribution License, trimmed and adjusted pitch
 	https://freesound.org/people/Qat/sounds/108336/
 
 Assets/Fonts/Blinker
