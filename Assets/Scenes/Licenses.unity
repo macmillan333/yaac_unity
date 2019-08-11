@@ -2073,10 +2073,6 @@ MonoBehaviour:
   - instruction: Some sound effects are licensed under the Attribution License.
     text: {fileID: 4900000, guid: f3571560d3ceb9041b60e4cdb1b121f0, type: 3}
     quizzes: []
-  - instruction: Some sound effects are licensed under the Attribution Noncommercial
-      License.
-    text: {fileID: 4900000, guid: b30579b000060aa4f8c7f4857bcf6abc, type: 3}
-    quizzes: []
   - instruction: Some sound effects are licensed under the Creative Commons 0 License.
     text: {fileID: 4900000, guid: 23c91e2c6903aeb42920f1c8567d5bee, type: 3}
     quizzes: []
