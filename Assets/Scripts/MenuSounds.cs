@@ -18,17 +18,17 @@ public class MenuSounds : ScriptableObject
 
     public void PlayButtonClickSound()
     {
-        AudioSource.PlayClipAtPoint(buttonClick, Vector3.zero);
+        AudioSource.PlayClipAtPoint(buttonClick, Vector3.zero, 0.5f);
     }
 
     public void MaybePlayButtonHoverSound(Button button)
     {
-        if (button.interactable) AudioSource.PlayClipAtPoint(buttonHover, Vector3.zero);
+        if (button.interactable) PlayButtonHoverSound();
     }
 
     public void MaybePlayButtonClickSound(Button button)
     {
-        if (button.interactable) AudioSource.PlayClipAtPoint(buttonClick, Vector3.zero);
+        if (button.interactable) PlayButtonClickSound();
     }
 
     public void PlayDialogOpenSound()

@@ -73,4 +73,4 @@ Assets/Sprites/Background/Sky.jpg
 Assets/Sprites/Background/SolarSystem.jpg
 	By WikiImages, Pixabay License, unmodified
 	https://pixabay.com/photos/solar-system-big-bang-11188/
-TODO: menu sounds select, confirm, cancel
+TODO: switch out Noncommercial sounds because project is under MIT license

@@ -2061,6 +2061,64 @@ MonoBehaviour:
       wrongAnswer1: Facebook
       wrongAnswer2: Twitter
       wrongAnswer3: Reddit
+  - instruction: This project is licensed under the MIT License. Please read and agree
+      to it.
+    text: {fileID: 4900000, guid: d392f4f5c0c58b84a8f6e1117bc6e4e1, type: 3}
+    quizzes:
+    - question: What can you not do to this project?
+      correctAnswer: Hold liable
+      wrongAnswer1: Commercial use
+      wrongAnswer2: Distribute
+      wrongAnswer3: Modify
+  - instruction: Some sound effects are licensed under the Attribution License.
+    text: {fileID: 4900000, guid: f3571560d3ceb9041b60e4cdb1b121f0, type: 3}
+    quizzes:
+    - question: What can you not do to this project?
+      correctAnswer: Hold liable
+      wrongAnswer1: Commercial use
+      wrongAnswer2: Distribute
+      wrongAnswer3: Modify
+  - instruction: Some sound effects are licensed under the Attribution Noncommercial
+      License.
+    text: {fileID: 4900000, guid: b30579b000060aa4f8c7f4857bcf6abc, type: 3}
+    quizzes:
+    - question: What can you not do to this project?
+      correctAnswer: Hold liable
+      wrongAnswer1: Commercial use
+      wrongAnswer2: Distribute
+      wrongAnswer3: Modify
+  - instruction: Some sound effects are licensed under the Creative Commons 0 License.
+    text: {fileID: 4900000, guid: 23c91e2c6903aeb42920f1c8567d5bee, type: 3}
+    quizzes:
+    - question: What can you not do to this project?
+      correctAnswer: Hold liable
+      wrongAnswer1: Commercial use
+      wrongAnswer2: Distribute
+      wrongAnswer3: Modify
+  - instruction: The font "Blinker" is licensed under the Open Font License.
+    text: {fileID: 4900000, guid: 123c6b5808356244088da0c0044809f5, type: 3}
+    quizzes:
+    - question: What can you not do to this project?
+      correctAnswer: Hold liable
+      wrongAnswer1: Commercial use
+      wrongAnswer2: Distribute
+      wrongAnswer3: Modify
+  - instruction: The font "Roboto" is licensed under the Apache License Version 2.0.
+    text: {fileID: 4900000, guid: d392f4f5c0c58b84a8f6e1117bc6e4e1, type: 3}
+    quizzes:
+    - question: What can you not do to this project?
+      correctAnswer: Hold liable
+      wrongAnswer1: Commercial use
+      wrongAnswer2: Distribute
+      wrongAnswer3: Modify
+  - instruction: Some images are licensed under the Pixabay License.
+    text: {fileID: 4900000, guid: 27152dc3d828c704f86eeaa6e4507dc2, type: 3}
+    quizzes:
+    - question: What can you not do to this project?
+      correctAnswer: Hold liable
+      wrongAnswer1: Commercial use
+      wrongAnswer2: Distribute
+      wrongAnswer3: Modify
   licensePanel: {fileID: 2043471694}
   instructionText: {fileID: 839772787}
   scrollViewContent: {fileID: 1243858772}

@@ -181,8 +181,17 @@ public class Licenses : MonoBehaviour
     public void AgreeButtonClicked()
     {
         if (state != State.WaitingForAgreement) return;
-        ShowQuiz();
-        state = State.Quizzing;
+
+        License license = allLicenses[currentLicenseIndex];
+        if (license.quizzes.Count > 0)
+        {
+            ShowQuiz();
+            state = State.Quizzing;
+        }
+        else
+        {
+            GoToNextLicense();
+        }
     }
 
     public void DisagreeButtonClicked()
