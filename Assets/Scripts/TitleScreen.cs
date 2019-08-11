@@ -7,12 +7,49 @@ public class TitleScreen : MonoBehaviour
     public Animator animator;
     public AudioSource startSound;
 
+    private enum Step
+    {
+        PressStart,
+        Notifications,
+        MainMenu,
+        Settings
+    }
+    private Step step;
+
     void Start()
     {
-        
+        step = Step.PressStart;
     }
     
     void Update()
+    {
+        switch (step)
+        {
+            case Step.PressStart:
+                {
+                    UpdatePressStartStep();
+                }
+                break;
+            case Step.Notifications:
+                {
+                    Debug.Log("Showing notifications.");
+                }
+                break;
+            case Step.MainMenu:
+                {
+
+                }
+                break;
+            case Step.Settings:
+                {
+
+                }
+                break;
+        }
+        
+    }
+
+    private void UpdatePressStartStep()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("TitleScreenWaitForStart"))
         {
@@ -27,6 +64,10 @@ public class TitleScreen : MonoBehaviour
                 animator.SetTrigger("PressedStart");
                 startSound.Play();
             }
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("TitleScreenIdle"))
+        {
+            step = Step.Notifications;
         }
     }
 }
