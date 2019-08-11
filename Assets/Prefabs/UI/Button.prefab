@@ -110,7 +110,7 @@ MonoBehaviour:
       type: 3}
     m_PressedSprite: {fileID: 21300000, guid: c089e1d9f7de57d41a10dc4d746e3a90, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 751916d6aae70d7418047a3ae5507871, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 76615526e07741346bd570da5db80a91, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 222bbfaa9aef62045a488a53a96564d9, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -142,11 +142,11 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 11400000, guid: 2741a0ec6d044ef41b43c2d8f14dd94f, type: 2}
-          m_MethodName: PlayButtonHoverSound
-          m_Mode: 1
+          m_MethodName: MaybePlayButtonHoverSound
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1091087448768720739}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -159,11 +159,11 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 11400000, guid: 2741a0ec6d044ef41b43c2d8f14dd94f, type: 2}
-          m_MethodName: PlayButtonClickSound
-          m_Mode: 1
+          m_MethodName: MaybePlayButtonClickSound
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1091087448768720739}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

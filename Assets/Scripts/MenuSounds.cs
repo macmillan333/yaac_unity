@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Assets/MenuSounds.asset", menuName = "Menu Sounds Registry", order = 0)]
 public class MenuSounds : ScriptableObject
@@ -18,6 +19,16 @@ public class MenuSounds : ScriptableObject
     public void PlayButtonClickSound()
     {
         AudioSource.PlayClipAtPoint(buttonClick, Vector3.zero);
+    }
+
+    public void MaybePlayButtonHoverSound(Button button)
+    {
+        if (button.interactable) AudioSource.PlayClipAtPoint(buttonHover, Vector3.zero);
+    }
+
+    public void MaybePlayButtonClickSound(Button button)
+    {
+        if (button.interactable) AudioSource.PlayClipAtPoint(buttonClick, Vector3.zero);
     }
 
     public void PlayDialogOpenSound()

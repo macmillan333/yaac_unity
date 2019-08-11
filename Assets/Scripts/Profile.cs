@@ -12,13 +12,15 @@ public class Profile
 {
     public List<int> unlockedColors;
     public bool canSkipIntro;
-    public bool canAgreeToAllLicenses;
+    public bool canAgreeToLicensesImmediately;
+    public bool canSkipLicenseQuiz;
 
     public Profile()
     {
         unlockedColors = new List<int>();
         canSkipIntro = false;
-        canAgreeToAllLicenses = false;
+        canAgreeToLicensesImmediately = false;
+        canSkipLicenseQuiz = false;
     }
 
     public override string ToString()
@@ -30,8 +32,11 @@ public class Profile
         builder.Append("canSkipIntro: ");
         builder.Append(canSkipIntro);
         builder.AppendLine();
-        builder.Append("canAgreeToAllLicenses: ");
-        builder.Append(canAgreeToAllLicenses);
+        builder.Append("canAgreeToLicensesImmediately: ");
+        builder.Append(canAgreeToLicensesImmediately);
+        builder.AppendLine();
+        builder.Append("canSkipLicenseQuiz: ");
+        builder.Append(canSkipLicenseQuiz);
         builder.AppendLine();
 
         return builder.ToString();
@@ -44,7 +49,7 @@ public static class ProfileManager
 
     static ProfileManager()
     {
-        inMemoryProfile = null;
+        inMemoryProfile = new Profile();
     }
 
     private static string ProfileFilePath()
