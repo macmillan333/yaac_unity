@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -47,6 +48,7 @@ public class Licenses : MonoBehaviour
         WaitingForAgreement,
         Quizzing,
         ShowingQuizResult,
+        WaitingForLoadScene,
     }
     private State state;
 
@@ -64,7 +66,9 @@ public class Licenses : MonoBehaviour
                 if (currentLicenseIndex >= allLicenses.Count)
                 {
                     // All licenses shown and agreed and quizzed. Move on.
-                    Debug.Log("Should go to next scene now.");
+                    HideLicense();
+                    state = State.WaitingForLoadScene;
+                    StartCoroutine(StartLoadSceneTimer());
                 }
                 else
                 {
@@ -93,6 +97,9 @@ public class Licenses : MonoBehaviour
             case State.ShowingQuizResult:
                 // Do nothing; StartQuizResultTimer will advance state
                 break;
+            case State.WaitingForLoadScene:
+                // Do nothing.
+                break;
         }
     }
 
@@ -104,6 +111,12 @@ public class Licenses : MonoBehaviour
         License license = allLicenses[currentLicenseIndex];
         instructionText.text = license.instruction;
         scrollViewContent.text = license.text.text;
+    }
+
+    private void HideLicense()
+    {
+        licensePanel.SetActive(false);
+        quizPanel.SetActive(false);
     }
 
     private void ShowQuiz()
@@ -176,6 +189,12 @@ public class Licenses : MonoBehaviour
         {
             state = State.Idle;
         }
+    }
+
+    private IEnumerator StartLoadSceneTimer()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(Scenes.game);
     }
 
     public void AgreeButtonClicked()

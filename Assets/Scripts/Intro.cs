@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -49,7 +50,7 @@ public class Intro : MonoBehaviour
 
     private void LoadNextScene()
     {
-        Debug.Log("Should load next scene now.");
+        SceneManager.LoadScene(Scenes.licenses);
     }
 
     private void SetAlpha(Image image, Text text, float alpha)

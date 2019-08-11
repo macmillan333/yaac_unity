@@ -14,8 +14,8 @@ Assets/Sfx/ShipCrash.wav
 	https://freesound.org/people/sandyrb/sounds/95078/
 Assets/Sfx/AsteroidBreak.wav
 	Combined from the following 2 sounds:
-	"Boom Bang" by bareform, Attribution Noncommercial License, unmodified
-	https://freesound.org/people/bareform/sounds/218721/
+	"explosion4.wav" by sarge4267, Attribution License, trimmed
+	https://freesound.org/people/sarge4267/sounds/102734/
 	"Cracking Earthquake (cracking soil, cracking stone)" by uagadugu, Creative Commons 0 License, trimmed
 	https://freesound.org/people/uagadugu/sounds/222521/
 Assets/Sfx/PowerUpPickUp.wav
@@ -28,8 +28,8 @@ Assets/Sfx/ShootBullet.wav
 	"laser3" by nsstudios, Attribution License, unmodified
 	https://freesound.org/people/nsstudios/sounds/344276/
 Assets/Sfx/ShootMissile.wav
-	"05780 space missile.wav", by Robinhood76, Attribution Noncommercial License, unmodified
-	https://freesound.org/people/Robinhood76/sounds/273332/
+	"Missile / Rocket firing", by wubitog, Creative Commons 0 License, trimmed
+	https://freesound.org/people/wubitog/sounds/200459/
 Assets/Sfx/GameStart.wav
 	"introgui.wav", by pera, Creative Commons 0 License, unmodified
 	https://freesound.org/people/pera/sounds/56231/
