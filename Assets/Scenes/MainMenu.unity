@@ -1973,6 +1973,36 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1091087448768720739, guid: c419381b01e8f814990d2ad1086f9fbf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091087448768720739, guid: c419381b01e8f814990d2ad1086f9fbf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091087448768720739, guid: c419381b01e8f814990d2ad1086f9fbf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091087448768720739, guid: c419381b01e8f814990d2ad1086f9fbf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1558044029}
+    - target: {fileID: 1091087448768720739, guid: c419381b01e8f814990d2ad1086f9fbf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClosePosterClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091087448768720739, guid: c419381b01e8f814990d2ad1086f9fbf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c419381b01e8f814990d2ad1086f9fbf, type: 3}
 --- !u!224 &1211620947 stripped
@@ -2401,6 +2431,11 @@ MonoBehaviour:
   clubPanel: {fileID: 2007612691}
   announcementPanel: {fileID: 349595059}
   announcementImage: {fileID: 1738312855}
+  posters:
+  - {fileID: 21300000, guid: 124a046695c8b8249974292962e9691b, type: 3}
+  - {fileID: 21300000, guid: f8f43fb1023ec8748b5679788492725f, type: 3}
+  - {fileID: 21300000, guid: cfa9bf06997b0a845a63e8cc6b28ed09, type: 3}
+  - {fileID: 21300000, guid: f25997eaac00bd143b95f25aaa19edd8, type: 3}
 --- !u!1001 &1563984938
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -30,6 +30,8 @@ public class TitleScreen : MonoBehaviour
         Posters
     }
     private AnnouncementSubstep announcementSubstep;
+    public List<Sprite> posters;
+    private int posterIndex;
 
     void Start()
     {
@@ -89,24 +91,11 @@ public class TitleScreen : MonoBehaviour
 
     private void UpdateAnnouncementStep()
     {
-        switch (announcementSubstep)
+        if (announcementSubstep == AnnouncementSubstep.Undefined)
         {
-            case AnnouncementSubstep.Undefined:
-                {
-                    // Newly started
-                    StartCoroutine(WaitAndShowUpdatePanel());
-                    announcementSubstep = AnnouncementSubstep.Update;
-                }
-                break;
-            case AnnouncementSubstep.Update:
-                {
-                    // Wait for updates to complete
-                }
-                break;
-            case AnnouncementSubstep.Club:
-                break;
-            case AnnouncementSubstep.Posters:
-                break;
+            // Newly started
+            StartCoroutine(WaitAndShowUpdatePanel());
+            announcementSubstep = AnnouncementSubstep.Update;
         }
     }
 
@@ -139,10 +128,29 @@ public class TitleScreen : MonoBehaviour
 
         StartCoroutine(WaitAndShowNextAnnouncement());
         announcementSubstep = AnnouncementSubstep.Posters;
+        posterIndex = 0;
     }
 
     private IEnumerator WaitAndShowNextAnnouncement()
     {
-        yield return null;
+        yield return new WaitForSeconds(0.5f);
+        announcementImage.sprite = posters[posterIndex];
+        announcementPanel.SetActive(true);
+    }
+
+    public void OnClosePosterClicked()
+    {
+        announcementPanel.SetActive(false);
+        posterIndex++;
+
+        if (posterIndex >= posters.Count)
+        {
+            // Move on
+        }
+        else
+        {
+            // Next poster
+            StartCoroutine(WaitAndShowNextAnnouncement());
+        }
     }
 }
