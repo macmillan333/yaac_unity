@@ -62,6 +62,7 @@ public class UpdatePanel : MonoBehaviour
         speedText.text = "";
         yield return new WaitForSeconds(1f);
 
+        disclaimer.SetActive(false);
         updateComplete?.Invoke();
     }
 

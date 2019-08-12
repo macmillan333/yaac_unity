@@ -94,9 +94,7 @@ public class TitleScreen : MonoBehaviour
             case AnnouncementSubstep.Undefined:
                 {
                     // Newly started
-                    updatePanel.SetActive(true);
-                    updatePanel.GetComponent<UpdatePanel>().StartUpdate();
-                    UpdatePanel.updateComplete += OnUpdateComplete;
+                    StartCoroutine(WaitAndShowUpdatePanel());
                     announcementSubstep = AnnouncementSubstep.Update;
                 }
                 break;
@@ -112,11 +110,39 @@ public class TitleScreen : MonoBehaviour
         }
     }
 
+    private IEnumerator WaitAndShowUpdatePanel()
+    {
+        yield return new WaitForSeconds(0.5f);
+        updatePanel.SetActive(true);
+        updatePanel.GetComponent<UpdatePanel>().StartUpdate();
+        UpdatePanel.updateComplete += OnUpdateComplete;
+    }
+
     private void OnUpdateComplete()
     {
         UpdatePanel.updateComplete -= OnUpdateComplete;
         updatePanel.SetActive(false);
 
-        // Show club stuff
+        StartCoroutine(WaitAndShowClubPanel());
+        announcementSubstep = AnnouncementSubstep.Club;
+    }
+
+    private IEnumerator WaitAndShowClubPanel()
+    {
+        yield return new WaitForSeconds(0.5f);
+        clubPanel.SetActive(true);
+    }
+
+    public void OnNoThanksClicked()
+    {
+        clubPanel.SetActive(false);
+
+        StartCoroutine(WaitAndShowNextAnnouncement());
+        announcementSubstep = AnnouncementSubstep.Posters;
+    }
+
+    private IEnumerator WaitAndShowNextAnnouncement()
+    {
+        yield return null;
     }
 }
