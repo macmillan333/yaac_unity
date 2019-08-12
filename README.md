@@ -7,7 +7,7 @@ If you have enough patience to actually start the game, that is.
 
 Built on Unity 2019.2.0f1.
 
-Many assets in this project, including models and textures and sprites. The following assets are acquired from external resources, or are based on them:
+Many assets in this project, including models and textures, are custom-made. The following assets are acquired from external resources, or are based on them:
 
 |Asset|Origin|Author|License|Modification (if any)|
 |--|--|--|--|--|
