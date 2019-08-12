@@ -7,11 +7,12 @@ If you have enough patience to actually start the game, that is.
 
 Built on Unity 2019.2.0f1.
 
-Many assets in this project, including models, textures and sprites, are custom-made. The following assets are downloaded from external resources, or are based on them:
+Many assets in this project, including models and textures and sprites. The following assets are acquired from external resources, or are based on them:
 
-Assets/Sfx/ShipCrash.wav
-	"THE CRASH.wav" by sandyrb, Attribution License, unmodified
-	https://freesound.org/people/sandyrb/sounds/95078/
+|Asset|Origin|Author|License|Modification (if any)|
+|--|--|--|--|--|
+|Assets/Sfx/ShipCrash.wav|[THE CRASH.wav](https://freesound.org/people/sandyrb/sounds/95078/)|sandyrb|Attribution License||
+
 Assets/Sfx/AsteroidBreak.wav
 	Combined from the following 2 sounds:
 	"explosion4.wav" by sarge4267, Attribution License, trimmed
@@ -73,7 +74,7 @@ Assets/Sprites/Background/Sky.jpg
 Assets/Sprites/Background/SolarSystem.jpg
 	By WikiImages, Pixabay License, unmodified
 	https://pixabay.com/photos/solar-system-big-bang-11188/
-Assets/Sprites/Notifications/AstroClub.jpg
+Assets/Sprites/Announcement/AstroClub.jpg
 	By tombud, Pixabay License, unmodified
 	https://pixabay.com/illustrations/science-fiction-spaceship-alien-1545307/
 TODO: switch out Noncommercial sounds because project is under MIT license
