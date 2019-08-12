@@ -7,6 +7,7 @@ public class PanelSounds : MonoBehaviour
     public MenuSounds menuSounds;
 
     private bool foundButtonInSiblings = false;
+    private bool applicationQuitting = false;
 
     private void OnEnable()
     {
@@ -16,9 +17,14 @@ public class PanelSounds : MonoBehaviour
 
     private void OnDisable()
     {
-        if (!foundButtonInSiblings)
+        if (!foundButtonInSiblings && !applicationQuitting)
         {
             menuSounds.PlayDialogCloseSound();
         }
+    }
+
+    private void OnApplicationQuit()
+    {
+        applicationQuitting = true;
     }
 }

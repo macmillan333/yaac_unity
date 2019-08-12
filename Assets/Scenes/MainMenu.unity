@@ -1342,6 +1342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596356908}
   - component: {fileID: 596356909}
+  - component: {fileID: 596356910}
   m_Layer: 5
   m_Name: Update Panel
   m_TagString: Untagged
@@ -1379,6 +1380,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596356907}
   m_CullTransparentMesh: 0
+--- !u!114 &596356910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596356907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f287e1898646f438355c703ae1846c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &668627288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,6 +2338,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1504548458}
   startSound: {fileID: 2126509781}
+  updatePanel: {fileID: 596356907}
+  clubPanel: {fileID: 2007612691}
+  announcementPanel: {fileID: 349595059}
+  announcementImage: {fileID: 1738312855}
 --- !u!1001 &1563984938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3409,6 +3426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2007612692}
   - component: {fileID: 2007612693}
+  - component: {fileID: 2007612694}
   m_Layer: 5
   m_Name: Club Panel
   m_TagString: Untagged
@@ -3451,6 +3469,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007612691}
   m_CullTransparentMesh: 0
+--- !u!114 &2007612694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007612691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4312fe844845c4f9296cf2dfa12193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2058278831
 GameObject:
   m_ObjectHideFlags: 0
