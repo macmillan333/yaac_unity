@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TitleScreen : MonoBehaviour
@@ -12,6 +13,10 @@ public class TitleScreen : MonoBehaviour
     public GameObject clubPanel;
     public GameObject announcementPanel;
     public Image announcementImage;
+
+    public GameObject mainMenu;
+
+    public Image curtain;
 
     private enum Step
     {
@@ -55,7 +60,7 @@ public class TitleScreen : MonoBehaviour
                 break;
             case Step.MainMenu:
                 {
-
+                    // Do nothing
                 }
                 break;
             case Step.Settings:
@@ -99,6 +104,7 @@ public class TitleScreen : MonoBehaviour
         }
     }
 
+    #region Announcements
     private IEnumerator WaitAndShowUpdatePanel()
     {
         yield return new WaitForSeconds(0.5f);
@@ -146,6 +152,7 @@ public class TitleScreen : MonoBehaviour
         if (posterIndex >= posters.Count)
         {
             // Move on
+            ShowMainMenu();
         }
         else
         {
@@ -153,4 +160,47 @@ public class TitleScreen : MonoBehaviour
             StartCoroutine(WaitAndShowNextAnnouncement());
         }
     }
+    #endregion
+
+    #region Main Menu
+    private void ShowMainMenu()
+    {
+        mainMenu.SetActive(true);
+        step = Step.MainMenu;
+    }
+
+    public void OnStartClicked()
+    {
+        mainMenu.SetActive(false);
+        step = Step.Settings;
+    }
+
+    public void OnSpaceStationClicked()
+    {
+        mainMenu.SetActive(false);
+        StartCoroutine(DrawCurtainThenGotoSpaceStation());
+    }
+
+    private IEnumerator DrawCurtainThenGotoSpaceStation()
+    {
+        float timer = 0f;
+        const float fadeTime = 1f;
+        curtain.color = Color.clear;
+        while (timer < fadeTime)
+        {
+            float progress = timer / fadeTime;
+            curtain.color = new Color(0f, 0f, 0f, progress);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        curtain.color = Color.white;
+
+        SceneManager.LoadScene(Scenes.spaceStation);
+    }
+
+    public void OnExitClicked()
+    {
+        Application.Quit();
+    }
+    #endregion
 }

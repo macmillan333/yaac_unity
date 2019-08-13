@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Licenses.unity
     guid: 997371e8eec2f8e4ea9eeedc68f41d21
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 2cb947a1fdcdd014c87ef4929c8157b4
+  - enabled: 1
+    path: Assets/Scenes/SpaceStation.unity
+    guid: 138c833f424b5d448bcb60c5b68d9824
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

@@ -194,7 +194,7 @@ public class Licenses : MonoBehaviour
     private IEnumerator StartLoadSceneTimer()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(Scenes.game);
+        SceneManager.LoadScene(Scenes.mainMenu);
     }
 
     public void AgreeButtonClicked()
