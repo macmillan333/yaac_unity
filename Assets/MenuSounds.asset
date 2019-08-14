@@ -16,3 +16,5 @@ MonoBehaviour:
   buttonClick: {fileID: 8300000, guid: f779de3eb5617a143a2e070e4aa308d1, type: 3}
   dialogOpen: {fileID: 8300000, guid: 707b0885eed644f4eaa254529a2ab3fd, type: 3}
   dialogClose: {fileID: 8300000, guid: 1426211decce7ce4598fa99680c0bdcf, type: 3}
+  oneShotAudioSource: {fileID: 967577520233382227, guid: 2a1f0f74516a78e4d9356067cd25c7eb,
+    type: 3}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Assets/MenuSounds.asset", menuName = "Menu Sounds Registry", order = 0)]
@@ -10,16 +11,25 @@ public class MenuSounds : ScriptableObject
     public AudioClip buttonClick;
     public AudioClip dialogOpen;
     public AudioClip dialogClose;
+    public GameObject oneShotAudioSource;
+
+    private void PlayOneShotSound(AudioClip clip, float volume)
+    {
+        AudioSource source = Instantiate(oneShotAudioSource).GetComponent<AudioSource>();
+        source.clip = clip;
+        source.volume = volume;
+        source.GetComponent<SelfDestruct>().life = clip.length + 1f;
+        source.Play();
+    }
 
     public void PlayButtonHoverSound()
     {
-        // TODO: have these sounds also controlled by audio settings
-        AudioSource.PlayClipAtPoint(buttonHover, Vector3.zero);
+        PlayOneShotSound(buttonHover, 1f);
     }
 
     public void PlayButtonClickSound()
     {
-        AudioSource.PlayClipAtPoint(buttonClick, Vector3.zero, 0.5f);
+        PlayOneShotSound(buttonClick, 0.5f);
     }
 
     public void MaybePlayButtonHoverSound(Button button)
@@ -34,11 +44,11 @@ public class MenuSounds : ScriptableObject
 
     public void PlayDialogOpenSound()
     {
-        AudioSource.PlayClipAtPoint(dialogOpen, Vector3.zero);
+        PlayOneShotSound(dialogOpen, 1f);
     }
 
     public void PlayDialogCloseSound()
     {
-        AudioSource.PlayClipAtPoint(dialogClose, Vector3.zero);
+        PlayOneShotSound(dialogClose, 1f);
     }
 }
