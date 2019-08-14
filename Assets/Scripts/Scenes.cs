@@ -9,4 +9,5 @@ public class Scenes
     public const int mainMenu = 2;
     public const int spaceStation = 3;
     public const int game = 4;
+    public const int profileEditor = 5;
 }

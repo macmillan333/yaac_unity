@@ -41,6 +41,12 @@ public class Intro : MonoBehaviour
                 skipInfoPanel.SetActive(true);
             }
         }
+
+        // Dev path! Disable before shipping!
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.E))
+        {
+            SceneManager.LoadScene(Scenes.profileEditor);
+        }
     }
 
     private void OnDestroy()

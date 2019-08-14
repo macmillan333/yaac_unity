@@ -65,9 +65,6 @@ public static class ProfileManager
         BinaryFormatter formatter = new BinaryFormatter();
         inMemoryProfile = (Profile)formatter.Deserialize(stream);
         stream.Close();
-
-        // Apply overrides here if needed
-        // inMemoryProfile.canSkipIntro = true;
     }
     
     public static void SaveToFile()
