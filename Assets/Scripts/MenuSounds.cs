@@ -13,6 +13,7 @@ public class MenuSounds : ScriptableObject
 
     public void PlayButtonHoverSound()
     {
+        // TODO: have these sounds also controlled by audio settings
         AudioSource.PlayClipAtPoint(buttonHover, Vector3.zero);
     }
 

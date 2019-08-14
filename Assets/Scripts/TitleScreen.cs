@@ -15,6 +15,9 @@ public class TitleScreen : MonoBehaviour
     public Image announcementImage;
 
     public GameObject mainMenu;
+    public List<GameObject> settingPanels;
+    private int currentSettingPanel;
+    private bool allSettingPanelsShown;
 
     public Image curtain;
 
@@ -65,7 +68,7 @@ public class TitleScreen : MonoBehaviour
                 break;
             case Step.Settings:
                 {
-
+                    UpdateSettingsStep();
                 }
                 break;
         }
@@ -101,6 +104,19 @@ public class TitleScreen : MonoBehaviour
             // Newly started
             StartCoroutine(WaitAndShowUpdatePanel());
             announcementSubstep = AnnouncementSubstep.Update;
+        }
+    }
+
+    private void UpdateSettingsStep()
+    {
+        if (currentSettingPanel == -1)
+        {
+            allSettingPanelsShown = false;
+            StartCoroutine(WaitAndOpenNextSettingsPanel());
+        }
+        if (allSettingPanelsShown)
+        {
+            StartCoroutine(DrawCurtainThenGotoScene(Scenes.game));
         }
     }
 
@@ -173,15 +189,16 @@ public class TitleScreen : MonoBehaviour
     {
         mainMenu.SetActive(false);
         step = Step.Settings;
+        currentSettingPanel = -1;
     }
 
     public void OnSpaceStationClicked()
     {
         mainMenu.SetActive(false);
-        StartCoroutine(DrawCurtainThenGotoSpaceStation());
+        StartCoroutine(DrawCurtainThenGotoScene(Scenes.spaceStation));
     }
 
-    private IEnumerator DrawCurtainThenGotoSpaceStation()
+    private IEnumerator DrawCurtainThenGotoScene(int scene)
     {
         float timer = 0f;
         const float fadeTime = 1f;
@@ -195,12 +212,33 @@ public class TitleScreen : MonoBehaviour
         }
         curtain.color = Color.white;
 
-        SceneManager.LoadScene(Scenes.spaceStation);
+        SceneManager.LoadScene(scene);
     }
 
     public void OnExitClicked()
     {
         Application.Quit();
+    }
+    #endregion
+
+    #region Settings
+    private IEnumerator WaitAndOpenNextSettingsPanel()
+    {
+        currentSettingPanel++;
+        yield return new WaitForSeconds(0.5f);
+        if (currentSettingPanel >= settingPanels.Count)
+        {
+            allSettingPanelsShown = true;
+        }
+        else
+        {
+            settingPanels[currentSettingPanel].SetActive(true);
+        }
+    }
+
+    public void OnSettingPanelClosed()
+    {
+        StartCoroutine(WaitAndOpenNextSettingsPanel());
     }
     #endregion
 }
