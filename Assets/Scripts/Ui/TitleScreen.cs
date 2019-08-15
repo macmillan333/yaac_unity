@@ -20,7 +20,7 @@ public class TitleScreen : MonoBehaviour
     private int currentSettingPanel;
 
     public SaveLoadPanel saveLoadPanel;
-    public Image curtain;
+    public Curtain curtain;
 
     private enum Step
     {
@@ -192,7 +192,7 @@ public class TitleScreen : MonoBehaviour
     {
         mainMenu.SetActive(false);
         step = Step.EnteringGame;
-        StartCoroutine(DrawCurtainThenGotoScene(Scenes.game));
+        curtain.DrawAndGotoScene(Scenes.game);
     }
 
     public void OnStartClicked()
@@ -205,24 +205,7 @@ public class TitleScreen : MonoBehaviour
     public void OnSpaceStationClicked()
     {
         mainMenu.SetActive(false);
-        StartCoroutine(DrawCurtainThenGotoScene(Scenes.spaceStation));
-    }
-
-    private IEnumerator DrawCurtainThenGotoScene(int scene)
-    {
-        float timer = 0f;
-        const float fadeTime = 1f;
-        curtain.color = Color.clear;
-        while (timer < fadeTime)
-        {
-            float progress = timer / fadeTime;
-            curtain.color = new Color(0f, 0f, 0f, progress);
-            timer += Time.deltaTime;
-            yield return null;
-        }
-        curtain.color = Color.black;
-
-        SceneManager.LoadScene(scene);
+        curtain.DrawAndGotoScene(Scenes.spaceStation);
     }
 
     public void OnExitClicked()
@@ -256,7 +239,7 @@ public class TitleScreen : MonoBehaviour
     {
         SaveLoadPanel.SaveComplete -= OnSaveComplete;
         step = Step.EnteringGame;
-        StartCoroutine(DrawCurtainThenGotoScene(Scenes.game));
+        curtain.DrawAndGotoScene(Scenes.game);
     }
     #endregion
 }

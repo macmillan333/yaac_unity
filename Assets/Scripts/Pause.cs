@@ -13,7 +13,7 @@ public class Pause : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && !GameMaster.instance.gameEnded)
         {
             paused = !paused;
             Time.timeScale = paused ? 0f : 1f;

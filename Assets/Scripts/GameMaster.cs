@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class PowerUpProperties
@@ -52,12 +53,19 @@ public class GameMaster : MonoBehaviour
     [Range(0f, 1f)]
     public float powerUpDropRate;
     public List<PowerUpProperties> powerUpProperties;
+
+    public bool gameEnded;
+    private int nextScene;
+    public SaveLoadPanel saveLoadPanel;
+    public GameObject winLoseMessage;
+    public Curtain curtain;
     
     void Start()
     {
         instance = this;
 
         currentLevel = 0;
+        gameEnded = false;
 
         SpawnInitialAsteroids();
         SpawnShip();
@@ -115,7 +123,7 @@ public class GameMaster : MonoBehaviour
         }
         else
         {
-            Debug.Log("Game over!");
+            StartCoroutine(WaitAndEndGame("GAME OVER", Scenes.intro));
         }
     }
 
@@ -141,7 +149,7 @@ public class GameMaster : MonoBehaviour
 
         if (currentLevel >= levels.Count - 1)
         {
-            Debug.Log("All clear!");
+            StartCoroutine(WaitAndEndGame("ALL CLEAR", Scenes.mainMenu));
         }
         else
         {
@@ -155,5 +163,23 @@ public class GameMaster : MonoBehaviour
             SpawnShip();
             SpawnInitialAsteroids();
         }
+    }
+
+    private IEnumerator WaitAndEndGame(string message, int nextScene)
+    {
+        gameEnded = true;
+        winLoseMessage.GetComponentInChildren<Text>().text = message;
+        winLoseMessage.SetActive(true);
+        yield return new WaitForSeconds(5f);
+
+        this.nextScene = nextScene;
+        SaveLoadPanel.SaveComplete += OnSaveComplete;
+        saveLoadPanel.StartSave();
+    }
+
+    private void OnSaveComplete()
+    {
+        SaveLoadPanel.SaveComplete -= OnSaveComplete;
+        curtain.DrawAndGotoScene(nextScene);
     }
 }
