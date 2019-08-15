@@ -9,6 +9,10 @@ public class ProfileEditor : MonoBehaviour
     public Toggle canSkipIntroToggle;
     public Toggle canImmediateAgreeToggle;
     public Toggle canSkipQuizToggle;
+    public Toggle noUpdatesToggle;
+    public Toggle canSkipSettingsToggle;
+    public Toggle canSkipStoryToggle;
+    public Toggle canSkipTutorialToggle;
     public Transform colorPanel;
     public Text statusText;
 
@@ -36,6 +40,10 @@ public class ProfileEditor : MonoBehaviour
         canSkipIntroToggle.isOn = p.canSkipIntro;
         canImmediateAgreeToggle.isOn = p.canAgreeToLicensesImmediately;
         canSkipQuizToggle.isOn = p.canSkipLicenseQuiz;
+        noUpdatesToggle.isOn = p.noUpdates;
+        canSkipSettingsToggle.isOn = p.canSkipSettings;
+        canSkipStoryToggle.isOn = p.canSkipStory;
+        canSkipTutorialToggle.isOn = p.canSkipTutorial;
 
         OnSelectNone();
         foreach (int index in p.unlockedColors)
@@ -51,6 +59,10 @@ public class ProfileEditor : MonoBehaviour
         p.canSkipIntro = canSkipIntroToggle.isOn;
         p.canAgreeToLicensesImmediately = canImmediateAgreeToggle.isOn;
         p.canSkipLicenseQuiz = canSkipQuizToggle.isOn;
+        p.noUpdates = noUpdatesToggle.isOn;
+        p.canSkipSettings = canSkipSettingsToggle.isOn;
+        p.canSkipStory = canSkipStoryToggle.isOn;
+        p.canSkipTutorial = canSkipTutorialToggle.isOn;
 
         for (int i = 0; i < totalColors; i++)
         {

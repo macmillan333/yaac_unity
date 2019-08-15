@@ -10,10 +10,28 @@ using UnityEngine;
 [System.Serializable]
 public class Profile
 {
+    // Unlocks and features
     public List<int> unlockedColors;
     public bool canSkipIntro;
     public bool canAgreeToLicensesImmediately;
     public bool canSkipLicenseQuiz;
+    public bool noUpdates;
+    public bool canSkipSettings;
+    public bool canSkipStory;
+    public bool canSkipTutorial;
+
+    // Settings
+    public int difficulty;
+    public int brightness;
+    public int resolutionWidth;
+    public int resolutionHeight;
+    public int refreshRate;
+    public bool fullscreen;
+    public int musicVolume;
+    public int sfxVolume;
+    public int voiceVolume;
+    public bool subtitles;
+    public int colorIndex;
 
     public Profile()
     {
@@ -21,25 +39,22 @@ public class Profile
         canSkipIntro = false;
         canAgreeToLicensesImmediately = false;
         canSkipLicenseQuiz = false;
-    }
+        noUpdates = false;
+        canSkipSettings = false;
+        canSkipStory = false;
+        canSkipTutorial = false;
 
-    public override string ToString()
-    {
-        StringBuilder builder = new StringBuilder();
-        builder.Append("Unlocked colors: ");
-        foreach (int color in unlockedColors) builder.Append(color);
-        builder.AppendLine();
-        builder.Append("canSkipIntro: ");
-        builder.Append(canSkipIntro);
-        builder.AppendLine();
-        builder.Append("canAgreeToLicensesImmediately: ");
-        builder.Append(canAgreeToLicensesImmediately);
-        builder.AppendLine();
-        builder.Append("canSkipLicenseQuiz: ");
-        builder.Append(canSkipLicenseQuiz);
-        builder.AppendLine();
-
-        return builder.ToString();
+        difficulty = 1;
+        brightness = 10;
+        resolutionWidth = Screen.currentResolution.width;
+        resolutionHeight = Screen.currentResolution.height;
+        refreshRate = Screen.currentResolution.refreshRate;
+        fullscreen = Screen.fullScreen;
+        musicVolume = 10;
+        sfxVolume = 10;
+        voiceVolume = 10;
+        subtitles = true;
+        colorIndex = 215;  // White
     }
 }
 
@@ -49,6 +64,7 @@ public static class ProfileManager
 
     static ProfileManager()
     {
+        Debug.Log("Initializing in-memory profile.");
         inMemoryProfile = new Profile();
     }
 

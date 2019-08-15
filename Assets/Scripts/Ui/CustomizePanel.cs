@@ -10,28 +10,44 @@ public class CustomizePanel : MonoBehaviour
     public Image chosenColor;
     public Text chosenColorText;
 
+    private int colorIndex;
+
     void Start()
     {
         int colorIndex = 0;
         foreach (Button colorButton in colorGrid.GetComponentsInChildren<Button>())
         {
-            int colorIndexCopy = colorIndex;
-            colorButton.GetComponent<Image>().color = IndexToColor(colorIndexCopy);
-            colorButton.onClick.AddListener(() => OnColorButtonClick(colorIndexCopy));
+            if (ProfileManager.inMemoryProfile.unlockedColors.Contains(colorIndex))
+            {
+                int colorIndexCopy = colorIndex;
+                colorButton.GetComponent<Image>().color = IndexToColor(colorIndexCopy);
+                colorButton.onClick.AddListener(() => OnColorButtonClick(colorIndexCopy));
+                colorButton.interactable = true;
+            }
+            else
+            {
+                colorButton.GetComponent<Image>().color = Color.clear;
+                colorButton.interactable = false;
+            }
             colorIndex++;
         }
+
+        colorIndex = ProfileManager.inMemoryProfile.colorIndex;
     }
     
-    void Update()
-    {
-        
-    }
-
-    private void OnColorButtonClick(int colorIndex)
+    private void Refresh()
     {
         Color c = IndexToColor(colorIndex);
         chosenColor.color = c;
         chosenColorText.text = ColorToHexText(c);
+
+        ProfileManager.inMemoryProfile.colorIndex = colorIndex;
+    }
+
+    private void OnColorButtonClick(int colorIndex)
+    {
+        this.colorIndex = colorIndex;
+        Refresh();
     }
 
     public static Color IndexToColor(int index)

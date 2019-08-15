@@ -19,13 +19,15 @@ public class AudioPanel : MonoBehaviour
 
     void Start()
     {
-        music = 10;
-        sfx = 10;
-        voice = 10;
-        subtitles = true;
+        music = ProfileManager.inMemoryProfile.musicVolume;
+        sfx = ProfileManager.inMemoryProfile.sfxVolume;
+        voice = ProfileManager.inMemoryProfile.voiceVolume;
+        subtitles = ProfileManager.inMemoryProfile.subtitles;
+
+        Refresh();
     }
     
-    void Update()
+    private void Refresh()
     {
         musicText.text = music.ToString();
         sfxText.text = sfx.ToString();
@@ -35,6 +37,11 @@ public class AudioPanel : MonoBehaviour
         mixer.SetFloat("Music", UiValueToMixerValue(music));
         mixer.SetFloat("Sfx", UiValueToMixerValue(sfx));
         mixer.SetFloat("Voice", UiValueToMixerValue(voice));
+
+        ProfileManager.inMemoryProfile.musicVolume = music;
+        ProfileManager.inMemoryProfile.sfxVolume = sfx;
+        ProfileManager.inMemoryProfile.voiceVolume = voice;
+        ProfileManager.inMemoryProfile.subtitles = subtitles;
     }
 
     private float UiValueToMixerValue(int uiValue)
@@ -47,40 +54,47 @@ public class AudioPanel : MonoBehaviour
     {
         music--;
         if (music < 0) music = 0;
+        Refresh();
     }
 
     public void OnMusicPlus()
     {
         music++;
         if (music >= 10) music = 10;
+        Refresh();
     }
 
     public void OnSfxMinus()
     {
         sfx--;
         if (sfx < 0) sfx = 0;
+        Refresh();
     }
 
     public void OnSfxPlus()
     {
         sfx++;
         if (sfx >= 10) sfx = 10;
+        Refresh();
     }
 
     public void OnVoiceMinus()
     {
         voice--;
         if (voice < 0) voice = 0;
+        Refresh();
     }
 
     public void OnVoicePlus()
     {
         voice++;
         if (voice >= 10) voice = 10;
+        Refresh();
     }
 
     public void OnSubtitlesToggle()
     {
         subtitles = !subtitles;
+        Refresh();
     }
 }
