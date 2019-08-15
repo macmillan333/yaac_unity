@@ -20,6 +20,9 @@ public class Profile
     public bool canSkipStory;
     public bool canSkipTutorial;
 
+    // Currency
+    public int gems;
+
     // Settings
     public int difficulty;
     public int brightness;
@@ -44,6 +47,8 @@ public class Profile
         canSkipSettings = false;
         canSkipStory = false;
         canSkipTutorial = false;
+
+        gems = 0;
 
         difficulty = 1;
         brightness = 10;

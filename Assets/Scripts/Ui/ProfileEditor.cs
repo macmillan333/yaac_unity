@@ -13,6 +13,7 @@ public class ProfileEditor : MonoBehaviour
     public Toggle canSkipSettingsToggle;
     public Toggle canSkipStoryToggle;
     public Toggle canSkipTutorialToggle;
+    public InputField gemsInput;
     public Transform colorPanel;
     public Text statusText;
 
@@ -45,6 +46,8 @@ public class ProfileEditor : MonoBehaviour
         canSkipStoryToggle.isOn = p.canSkipStory;
         canSkipTutorialToggle.isOn = p.canSkipTutorial;
 
+        gemsInput.text = p.gems.ToString();
+
         OnSelectNone();
         foreach (int index in p.unlockedColors)
         {
@@ -63,6 +66,8 @@ public class ProfileEditor : MonoBehaviour
         p.canSkipSettings = canSkipSettingsToggle.isOn;
         p.canSkipStory = canSkipStoryToggle.isOn;
         p.canSkipTutorial = canSkipTutorialToggle.isOn;
+
+        p.gems = int.Parse(gemsInput.text);
 
         for (int i = 0; i < totalColors; i++)
         {

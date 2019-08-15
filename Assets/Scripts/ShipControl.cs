@@ -163,5 +163,13 @@ public class ShipControl : MonoBehaviour
             pickUpEffect.GetComponentInChildren<TextMesh>().text = properties.effectText;
             Destroy(other.gameObject);
         }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Gem"))
+        {
+            ProfileManager.inMemoryProfile.gems++;
+            GameObject pickUpEffect = Instantiate(powerUpPickUpEffect);
+            pickUpEffect.transform.position = other.transform.position;
+            pickUpEffect.GetComponentInChildren<TextMesh>().text = "GEM";
+            Destroy(other.gameObject);
+        }
     }
 }

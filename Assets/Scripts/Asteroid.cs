@@ -93,6 +93,11 @@ public class Asteroid : MonoBehaviour
                     medal.transform.position = transform.position;
                     // It's up to the medal itself to decide its type.
                 }
+                else if (Random.value <= GameMaster.instance.gemDropRate)
+                {
+                    GameObject gem = Instantiate(GameMaster.instance.gemPrefab);
+                    gem.transform.position = transform.position;
+                }
                 GameObject explosion = Instantiate(explosionPrefab);
                 explosion.transform.position = transform.position;
                 float scale = transform.localScale.x * 0.1f;

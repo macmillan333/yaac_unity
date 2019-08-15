@@ -50,9 +50,13 @@ public class GameMaster : MonoBehaviour
     public GameObject ship { get { return ship_; } }
 
     public GameObject powerUpMedalPrefab;
+    public GameObject gemPrefab;
     [Range(0f, 1f)]
     public float powerUpDropRate;
     public List<PowerUpProperties> powerUpProperties;
+    [Range(0f, 1f)]
+    [Tooltip("This drop is rolled after a power up failed to drop. Effective rate is (1-powerUpDropRate)*gemDropRate.")]
+    public float gemDropRate;
 
     public bool gameEnded;
     private int nextScene;
