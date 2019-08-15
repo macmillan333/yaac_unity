@@ -15,6 +15,7 @@ public class TitleScreen : MonoBehaviour
     public Image announcementImage;
 
     public GameObject mainMenu;
+    public GameObject startNowButton;
     public List<GameObject> settingPanels;
     private int currentSettingPanel;
     private bool allSettingPanelsShown;
@@ -45,6 +46,7 @@ public class TitleScreen : MonoBehaviour
     {
         step = Step.PressStart;
         announcementSubstep = AnnouncementSubstep.Undefined;
+        startNowButton.SetActive(ProfileManager.inMemoryProfile.canSkipSettings);
     }
     
     void Update()
@@ -183,6 +185,14 @@ public class TitleScreen : MonoBehaviour
     {
         mainMenu.SetActive(true);
         step = Step.MainMenu;
+    }
+
+    public void OnStartNowClicked()
+    {
+        mainMenu.SetActive(false);
+        step = Step.Settings;
+        currentSettingPanel = 0;
+        allSettingPanelsShown = true;
     }
 
     public void OnStartClicked()

@@ -36,6 +36,7 @@ public class Profile
     public Profile()
     {
         unlockedColors = new List<int>();
+        unlockedColors.Add(215);  // White
         canSkipIntro = false;
         canAgreeToLicensesImmediately = false;
         canSkipLicenseQuiz = false;
@@ -46,10 +47,10 @@ public class Profile
 
         difficulty = 1;
         brightness = 10;
-        resolutionWidth = Screen.currentResolution.width;
-        resolutionHeight = Screen.currentResolution.height;
-        refreshRate = Screen.currentResolution.refreshRate;
-        fullscreen = Screen.fullScreen;
+        resolutionWidth = 1920;
+        resolutionHeight = 1080;
+        refreshRate = 60;
+        fullscreen = true;
         musicVolume = 10;
         sfxVolume = 10;
         voiceVolume = 10;

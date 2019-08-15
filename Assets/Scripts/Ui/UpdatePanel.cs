@@ -26,6 +26,13 @@ public class UpdatePanel : MonoBehaviour
         speedText.text = "";
         yield return new WaitForSeconds(2f);
 
+        if (ProfileManager.inMemoryProfile.noUpdates)
+        {
+            disclaimer.SetActive(false);
+            updateComplete?.Invoke();
+            yield break;
+        }
+
         status.text = "Downloading updates...";
         float totalSize = Random.value * 30f + 20f;  // [20, 50]
         float downloaded = 0f;
