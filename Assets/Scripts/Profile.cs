@@ -65,7 +65,6 @@ public static class ProfileManager
 
     static ProfileManager()
     {
-        Debug.Log("Initializing in-memory profile.");
         inMemoryProfile = new Profile();
     }
 

@@ -47,18 +47,4 @@ public class Warp : MonoBehaviour
             transform.position = new Vector3(transform.position.x, 0f, -transform.position.z);
         }
     }
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.layer != LayerMask.NameToLayer("WarpBorder")) return;
-    //    Vector3 exitPoint = other.ClosestPoint(transform.position);
-    //    if (Mathf.Abs(exitPoint.x) >= WarpBorder.borderSize.x - 0.1f)
-    //    {
-    //        transform.position = new Vector3(-transform.position.x, 0f, transform.position.z);
-    //    }
-    //    if (Mathf.Abs(exitPoint.z) >= WarpBorder.borderSize.z - 0.1f)
-    //    {
-    //        transform.position = new Vector3(transform.position.x, 0f, -transform.position.z);
-    //    }
-    //}
 }

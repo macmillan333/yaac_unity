@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShipControl : MonoBehaviour
 {
+    public Renderer capsuleRenderer;
     public float thrust;
     public float torque;
     public Transform bulletSpawnPoint;
@@ -22,6 +23,7 @@ public class ShipControl : MonoBehaviour
     private float shieldTimer;
     public AudioSource bulletSound;
     public AudioSource missileSound;
+    public ParticleSystem fireEffect;
     public GameObject powerUpPickUpEffect;
     public GameObject explosionEffect;
 
@@ -36,6 +38,9 @@ public class ShipControl : MonoBehaviour
 
         numSpreads = 1;
         numRapids = 0;
+
+        capsuleRenderer.material.color = CustomizePanel.IndexToColor(
+            ProfileManager.inMemoryProfile.colorIndex);
     }
     
     void Update()
@@ -62,6 +67,8 @@ public class ShipControl : MonoBehaviour
         if (Input.GetButton("Thrust")) vertical = 1f;
         if (Input.GetButton("Brake")) vertical = -1f;
         GetComponent<Rigidbody>().AddForce(facingDirection * vertical * thrust);
+        ParticleSystem.EmissionModule emissionModule = fireEffect.emission;
+        emissionModule.enabled = vertical > 0f;
 
         // Shoot
         float effectiveShootInterval = shootInterval - numRapids * 0.05f;
