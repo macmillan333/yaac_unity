@@ -18,8 +18,8 @@ public class TitleScreen : MonoBehaviour
     public GameObject startNowButton;
     public List<GameObject> settingPanels;
     private int currentSettingPanel;
-    private bool allSettingPanelsShown;
 
+    public SaveLoadPanel saveLoadPanel;
     public Image curtain;
 
     private enum Step
@@ -27,7 +27,8 @@ public class TitleScreen : MonoBehaviour
         PressStart,
         Announcements,
         MainMenu,
-        Settings
+        Settings,
+        EnteringGame
     }
     private Step step;
 
@@ -73,6 +74,11 @@ public class TitleScreen : MonoBehaviour
                     UpdateSettingsStep();
                 }
                 break;
+            case Step.EnteringGame:
+                {
+                    // Do nothing
+                }
+                break;
         }
         
     }
@@ -113,12 +119,7 @@ public class TitleScreen : MonoBehaviour
     {
         if (currentSettingPanel == -1)
         {
-            allSettingPanelsShown = false;
             StartCoroutine(WaitAndOpenNextSettingsPanel());
-        }
-        if (allSettingPanelsShown)
-        {
-            StartCoroutine(DrawCurtainThenGotoScene(Scenes.game));
         }
     }
 
@@ -190,9 +191,8 @@ public class TitleScreen : MonoBehaviour
     public void OnStartNowClicked()
     {
         mainMenu.SetActive(false);
-        step = Step.Settings;
-        currentSettingPanel = 0;
-        allSettingPanelsShown = true;
+        step = Step.EnteringGame;
+        StartCoroutine(DrawCurtainThenGotoScene(Scenes.game));
     }
 
     public void OnStartClicked()
@@ -220,7 +220,7 @@ public class TitleScreen : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-        curtain.color = Color.white;
+        curtain.color = Color.black;
 
         SceneManager.LoadScene(scene);
     }
@@ -238,7 +238,8 @@ public class TitleScreen : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (currentSettingPanel >= settingPanels.Count)
         {
-            allSettingPanelsShown = true;
+            SaveLoadPanel.SaveComplete += OnSaveComplete;
+            saveLoadPanel.StartSave();
         }
         else
         {
@@ -249,6 +250,13 @@ public class TitleScreen : MonoBehaviour
     public void OnSettingPanelClosed()
     {
         StartCoroutine(WaitAndOpenNextSettingsPanel());
+    }
+
+    private void OnSaveComplete()
+    {
+        SaveLoadPanel.SaveComplete -= OnSaveComplete;
+        step = Step.EnteringGame;
+        StartCoroutine(DrawCurtainThenGotoScene(Scenes.game));
     }
     #endregion
 }
