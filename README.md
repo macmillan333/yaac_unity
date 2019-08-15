@@ -34,3 +34,4 @@ Many assets in this project, including models and textures, are custom-made. The
 |Assets/Sprites/Background/Sky.jpg|[This image](https://pixabay.com/photos/sky-stars-constellations-astronomy-828648/)|Free-Photos|Pixabay License||
 |Assets/Sprites/Background/SolarSystem.jpg|[This image](https://pixabay.com/photos/solar-system-big-bang-11188/)|WikiImages|Pixabay License||
 |Assets/Sprites/Announcement/AstroClub.jpg|[This image](https://pixabay.com/illustrations/science-fiction-spaceship-alien-1545307/)|tombud|Pixabay License||
+|Assets/Sprites/Announcement/SpaceStation.jpg|[This image](https://pixabay.com/illustrations/outer-space-space-ship-space-2177952/)|thefairypath|Pixabay License||
