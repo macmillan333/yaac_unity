@@ -22,9 +22,12 @@ Many assets in this project, including models and textures, are custom-made. The
 |Assets/Sfx/BulletHit.wav|[Sticks in dirt 2.wav](https://freesound.org/people/worthahep88/sounds/319214/)|worthahep88|Creative Commons 0 License|trimmed|
 |Assets/Sfx/MissileHit.wav|[Fireworks](https://freesound.org/people/MrAuralization/sounds/212677/)|MrAuralization|Attribution License|trimmed|	
 |Assets/Sfx/UI/ButtonHover.wav|[Computer Beep SFX for Videogames](https://freesound.org/people/qubodup/sounds/140773/)|qubodup|Creative Commons 0 License||
-|Assets/Sfx/UI/ButtonClick.wav|[unfa's Menu Sounds](https://freesound.org/people/Qat/sounds/108336/)|unfa|Attribution License|trimmed|
-|Assets/Sfx/UI/DialogOpen.wav|[unfa's Menu Sounds](https://freesound.org/people/Qat/sounds/108336/)|unfa|Attribution License|trimmed and adjusted pitch|
-|Assets/Sfx/UI/DialogClose.wav|[unfa's Menu Sounds](https://freesound.org/people/Qat/sounds/108336/)|unfa|Attribution License|trimmed and adjusted pitch|
+|Assets/Sfx/UI/ButtonClick.wav|[unfa's Menu Sounds](https://freesound.org/people/unfa/sounds/244266/)|unfa|Attribution License|trimmed|
+|Assets/Sfx/UI/DialogOpen.wav|[unfa's Menu Sounds](https://freesound.org/people/unfa/sounds/244266/)|unfa|Attribution License|trimmed and adjusted pitch|
+|Assets/Sfx/UI/DialogClose.wav|[unfa's Menu Sounds](https://freesound.org/people/unfa/sounds/244266/)|unfa|Attribution License|trimmed and adjusted pitch|
+|Assets/Sfx/GetCard.wav|[UI Completed Status Alert Notification SFX001.wav](https://freesound.org/people/Headphaze/sounds/277033/)|Headphaze|Attribution License||
+|Assets/Sfx/ContainerDrop.wav|[GateShutThumps.wav](https://freesound.org/people/eardeer/sounds/401041/)|eardeer|Creative Commons 0 License|trimmed|
+|Assets/Sfx/ContainerOpen.wav|[Opening the sarcophagus](https://freesound.org/people/Breviceps/sounds/457529/)|Breviceps|Creative Commons 0 License|trimmed|
 |Assets/Fonts/Blinker/*|[Blinker](https://fonts.google.com/specimen/Blinker?selection.family=Blinker)|Juergen Huber|Open Font License||
 |Assets/Fonts/Roboto/*|[Roboto](https://fonts.google.com/specimen/Roboto?selection.family=Roboto)|Christian Robertson|Apache License Version 2.0||
 |Assets/Sprites/Background/Cosmos.jpg|[This image](https://pixabay.com/photos/cosmos-dark-hd-wallpaper-milky-way-1853491/)|Pexels|Pixabay License||
