@@ -26,6 +26,7 @@ public class Container : MonoBehaviour
         enhancementCard.SetActive(false);
         Color c = CustomizePanel.IndexToColor(colorIndex);
         colorCardTitle.text = CustomizePanel.ColorToHexText(c);
+        colorCardColor.color = c;
         colorCardNew.SetActive(!duplicate);
         colorCardDuplicate.SetActive(duplicate);
     }
