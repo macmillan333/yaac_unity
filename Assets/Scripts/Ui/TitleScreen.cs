@@ -47,7 +47,7 @@ public class TitleScreen : MonoBehaviour
     {
         step = Step.PressStart;
         announcementSubstep = AnnouncementSubstep.Undefined;
-        startNowButton.SetActive(ProfileManager.inMemoryProfile.canSkipSettings);
+        startNowButton.SetActive(ProfileManager.inMemoryProfile.HasEnhancement(Enhancement.SetupSkip));
     }
     
     void Update()

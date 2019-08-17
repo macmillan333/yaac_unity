@@ -6,19 +6,27 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using UnityEngine;
 
+public enum Enhancement
+{
+    IntroSkip = 0,
+    InstantAgree = 1,
+    QuizSkip = 2,
+    UpdateSkip = 3,
+    SetupSkip = 4,
+    SettingSkip = 5,
+    StorySkip = 6,
+    TutorialSkip = 7,
+
+    Count = 8
+}
+
 // This is NOT a MonoBehavior.
 [System.Serializable]
 public class Profile
 {
-    // Unlocks and features
+    // Unlocks and enhancements
     public List<int> unlockedColors;
-    public bool canSkipIntro;
-    public bool canAgreeToLicensesImmediately;
-    public bool canSkipLicenseQuiz;
-    public bool noUpdates;
-    public bool canSkipSettings;
-    public bool canSkipStory;
-    public bool canSkipTutorial;
+    public List<bool> unlockedEnhancements;  // Indexed by Enhancement value
 
     // Currency
     public int gems;
@@ -39,14 +47,12 @@ public class Profile
     public Profile()
     {
         unlockedColors = new List<int>();
-        unlockedColors.Add(215);  // White
-        canSkipIntro = false;
-        canAgreeToLicensesImmediately = false;
-        canSkipLicenseQuiz = false;
-        noUpdates = false;
-        canSkipSettings = false;
-        canSkipStory = false;
-        canSkipTutorial = false;
+        UnlockColor(215);  // White
+        unlockedEnhancements = new List<bool>();
+        for (int i = 0; i < (int)Enhancement.Count; i++)
+        {
+            unlockedEnhancements.Add(false);
+        }
 
         gems = 0;
 
@@ -61,6 +67,31 @@ public class Profile
         voiceVolume = 10;
         subtitles = true;
         colorIndex = 215;  // White
+    }
+
+    public bool HasColor(int colorIndex)
+    {
+        return unlockedColors.Contains(colorIndex);
+    }
+
+    public void UnlockColor(int colorIndex)
+    {
+        unlockedColors.Add(colorIndex);
+    }
+
+    public void ResetColors()
+    {
+        unlockedColors.Clear();
+    }
+
+    public bool HasEnhancement(Enhancement e)
+    {
+        return unlockedEnhancements[(int)e];
+    }
+
+    public void SetEnhancement(Enhancement e, bool unlocked)
+    {
+        unlockedEnhancements[(int)e] = unlocked;
     }
 }
 

@@ -73,7 +73,7 @@ public class Licenses : MonoBehaviour
                 else
                 {
                     ShowLicense();
-                    if (ProfileManager.inMemoryProfile.canAgreeToLicensesImmediately)
+                    if (ProfileManager.inMemoryProfile.HasEnhancement(Enhancement.InstantAgree))
                     {
                         agreeButton.interactable = true;
                         state = State.WaitingForAgreement;
@@ -125,7 +125,8 @@ public class Licenses : MonoBehaviour
         quizPanel.SetActive(true);
 
         returnButton.gameObject.SetActive(true);
-        skipButton.gameObject.SetActive(ProfileManager.inMemoryProfile.canSkipLicenseQuiz);
+        skipButton.gameObject.SetActive(
+            ProfileManager.inMemoryProfile.HasEnhancement(Enhancement.QuizSkip));
         foreach (Button optionButton in optionsButtons)
         {
             optionButton.gameObject.SetActive(true);
@@ -247,7 +248,7 @@ public class Licenses : MonoBehaviour
     public void SkipButtonClicked()
     {
         if (state != State.Quizzing) return;
-        if (!ProfileManager.inMemoryProfile.canSkipLicenseQuiz) return;
+        if (!ProfileManager.inMemoryProfile.HasEnhancement(Enhancement.QuizSkip)) return;
         GoToNextLicense();
     }
 

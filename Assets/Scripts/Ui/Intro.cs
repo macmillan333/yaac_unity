@@ -32,7 +32,7 @@ public class Intro : MonoBehaviour
     {
         if (isShowingIntros && Input.GetButtonDown("Pause") && !skipInfoPanel.activeSelf)
         {
-            if (ProfileManager.inMemoryProfile.canSkipIntro)
+            if (ProfileManager.inMemoryProfile.HasEnhancement(Enhancement.IntroSkip))
             {
                 LoadNextScene();
             }

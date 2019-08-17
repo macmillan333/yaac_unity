@@ -26,7 +26,7 @@ public class UpdatePanel : MonoBehaviour
         speedText.text = "";
         yield return new WaitForSeconds(2f);
 
-        if (ProfileManager.inMemoryProfile.noUpdates)
+        if (ProfileManager.inMemoryProfile.HasEnhancement(Enhancement.UpdateSkip))
         {
             disclaimer.SetActive(false);
             updateComplete?.Invoke();

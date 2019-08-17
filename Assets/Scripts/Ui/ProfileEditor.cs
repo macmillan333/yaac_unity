@@ -38,13 +38,13 @@ public class ProfileEditor : MonoBehaviour
     {
         Profile p = ProfileManager.inMemoryProfile;
 
-        canSkipIntroToggle.isOn = p.canSkipIntro;
-        canImmediateAgreeToggle.isOn = p.canAgreeToLicensesImmediately;
-        canSkipQuizToggle.isOn = p.canSkipLicenseQuiz;
-        noUpdatesToggle.isOn = p.noUpdates;
-        canSkipSettingsToggle.isOn = p.canSkipSettings;
-        canSkipStoryToggle.isOn = p.canSkipStory;
-        canSkipTutorialToggle.isOn = p.canSkipTutorial;
+        canSkipIntroToggle.isOn = p.HasEnhancement(Enhancement.IntroSkip);
+        canImmediateAgreeToggle.isOn = p.HasEnhancement(Enhancement.InstantAgree);
+        canSkipQuizToggle.isOn = p.HasEnhancement(Enhancement.QuizSkip);
+        noUpdatesToggle.isOn = p.HasEnhancement(Enhancement.UpdateSkip);
+        canSkipSettingsToggle.isOn = p.HasEnhancement(Enhancement.SetupSkip);
+        canSkipStoryToggle.isOn = p.HasEnhancement(Enhancement.StorySkip);
+        canSkipTutorialToggle.isOn = p.HasEnhancement(Enhancement.TutorialSkip);
 
         gemsInput.text = p.gems.ToString();
 
@@ -59,21 +59,22 @@ public class ProfileEditor : MonoBehaviour
     {
         Profile p = new Profile();
 
-        p.canSkipIntro = canSkipIntroToggle.isOn;
-        p.canAgreeToLicensesImmediately = canImmediateAgreeToggle.isOn;
-        p.canSkipLicenseQuiz = canSkipQuizToggle.isOn;
-        p.noUpdates = noUpdatesToggle.isOn;
-        p.canSkipSettings = canSkipSettingsToggle.isOn;
-        p.canSkipStory = canSkipStoryToggle.isOn;
-        p.canSkipTutorial = canSkipTutorialToggle.isOn;
+        p.SetEnhancement(Enhancement.IntroSkip, canSkipIntroToggle.isOn);
+        p.SetEnhancement(Enhancement.InstantAgree, canImmediateAgreeToggle.isOn);
+        p.SetEnhancement(Enhancement.QuizSkip, canSkipQuizToggle.isOn);
+        p.SetEnhancement(Enhancement.UpdateSkip, noUpdatesToggle.isOn);
+        p.SetEnhancement(Enhancement.SetupSkip, canSkipSettingsToggle.isOn);
+        p.SetEnhancement(Enhancement.StorySkip, canSkipStoryToggle.isOn);
+        p.SetEnhancement(Enhancement.TutorialSkip, canSkipTutorialToggle.isOn);
 
         p.gems = int.Parse(gemsInput.text);
 
+        p.ResetColors();
         for (int i = 0; i < totalColors; i++)
         {
             if (colorPanel.GetChild(i).GetComponent<Toggle>().isOn)
             {
-                p.unlockedColors.Add(i);
+                p.UnlockColor(i);
             }
         }
 

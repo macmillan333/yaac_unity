@@ -17,7 +17,7 @@ public class CustomizePanel : MonoBehaviour
         int colorIndex = 0;
         foreach (Button colorButton in colorGrid.GetComponentsInChildren<Button>())
         {
-            if (ProfileManager.inMemoryProfile.unlockedColors.Contains(colorIndex))
+            if (ProfileManager.inMemoryProfile.HasColor(colorIndex))
             {
                 int colorIndexCopy = colorIndex;
                 colorButton.GetComponent<Image>().color = IndexToColor(colorIndexCopy);
