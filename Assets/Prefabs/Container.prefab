@@ -238,7 +238,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 40b67843043584a4bb0a83f3e8890e1d, type: 2}
+  - {fileID: 2100000, guid: d59d8fe1247fdbd4fb5cea3a3c824302, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -280,7 +280,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: f5dc619afed69894b89cb528c9df21f1, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4278238463
+    rgba: 4294967295
 --- !u!1 &1947642977493939768
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,7 +776,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 40b67843043584a4bb0a83f3e8890e1d, type: 2}
+  - {fileID: 2100000, guid: d59d8fe1247fdbd4fb5cea3a3c824302, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -818,7 +818,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: f5dc619afed69894b89cb528c9df21f1, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4278238463
+    rgba: 4294967295
 --- !u!1 &1947642978445325420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,6 +1806,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b111f3da79e4f4a954c411f312cabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorCard: {fileID: 1947642977585625884}
+  colorCardTitle: {fileID: 1947642978445325422}
+  colorCardColor: {fileID: 1947642979037754262}
+  colorCardNew: {fileID: 1947642977491630635}
+  colorCardDuplicate: {fileID: 1947642978645782286}
+  enhancementCard: {fileID: 1947642977493939768}
+  enhancementCardTitle: {fileID: 1947642977584213843}
+  enhancementCardExplanation: {fileID: 1947642977319047936}
+  enhancementCardNew: {fileID: 1947642978263232928}
+  enhancementCardDuplicate: {fileID: 1947642977332771462}
   containerDrop: {fileID: 1947642978837232015}
   containerOpen: {fileID: 1947642978811053315}
   getCard: {fileID: 1947642978541104703}
@@ -2013,6 +2023,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b111f3da79e4f4a954c411f312cabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorCard: {fileID: 0}
+  colorCardTitle: {fileID: 0}
+  colorCardColor: {fileID: 0}
+  colorCardNew: {fileID: 0}
+  colorCardDuplicate: {fileID: 0}
+  enhancementCard: {fileID: 0}
+  enhancementCardTitle: {fileID: 0}
+  enhancementCardExplanation: {fileID: 0}
+  enhancementCardNew: {fileID: 0}
+  enhancementCardDuplicate: {fileID: 0}
   containerDrop: {fileID: 0}
   containerOpen: {fileID: 0}
   getCard: {fileID: 0}

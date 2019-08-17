@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class EnhancementProperty
+{
+    public Enhancement type;
+    public string title;
+    [TextArea]
+    public string description;
+}
+
 public class SpaceStation : MonoBehaviour
 {
     public Text gemCount;
@@ -17,6 +26,8 @@ public class SpaceStation : MonoBehaviour
 
     public Curtain curtain;
 
+    public List<EnhancementProperty> enhancementProperties;
+
     void Start()
     {
         // Dev path
@@ -29,6 +40,15 @@ public class SpaceStation : MonoBehaviour
         gemCount.text = gems.ToString();
         buyOneButton.interactable = gems >= 2;
         buyFiveButton.interactable = gems >= 10;
+    }
+
+    public EnhancementProperty GetEnhancementProperty(Enhancement e)
+    {
+        foreach (EnhancementProperty p in enhancementProperties)
+        {
+            if (p.type == e) return p;
+        }
+        throw new System.ArgumentOutOfRangeException("Enhancement not found");
     }
 
     public void OnBuyOneClicked()

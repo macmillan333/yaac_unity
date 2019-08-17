@@ -5,32 +5,39 @@ using UnityEngine.UI;
 
 public class InventoryPanel : MonoBehaviour
 {
-    public GameObject colorGrid;
+    public SpaceStation station;
+    public Transform colorGrid;
+    public Transform enhancementGrid;
 
-    void Start()
-    {
-        
-    }
-    
-    void Update()
-    {
-        
-    }
+    public Sprite lockedColor;
 
     private void OnEnable()
     {
-        int colorIndex = 0;
-        foreach (Image color in colorGrid.GetComponentsInChildren<Image>())
+        for (int colorIndex = 0; colorIndex < colorGrid.childCount; colorIndex++)
         {
+            Image image = colorGrid.GetChild(colorIndex).GetComponent<Image>();
             if (ProfileManager.inMemoryProfile.HasColor(colorIndex))
             {
-                color.color = CustomizePanel.IndexToColor(colorIndex);
+                image.color = CustomizePanel.IndexToColor(colorIndex);
             }
             else
             {
-                color.color = Color.clear;
+                image.color = Color.clear;
             }
-            colorIndex++;
+        }
+
+        for (int i = 0; i < enhancementGrid.childCount; i++)
+        {
+            Enhancement e = (Enhancement)i;
+            Text text = enhancementGrid.GetChild(i).GetComponent<Text>();
+            if (ProfileManager.inMemoryProfile.HasEnhancement(e))
+            {
+                text.text = station.GetEnhancementProperty(e).title;
+            }
+            else
+            {
+                text.text = "? ? ?";
+            }
         }
     }
 }

@@ -13,11 +13,10 @@ public enum Enhancement
     QuizSkip = 2,
     UpdateSkip = 3,
     SetupSkip = 4,
-    SettingSkip = 5,
-    StorySkip = 6,
-    TutorialSkip = 7,
+    StorySkip = 5,
+    TutorialSkip = 6,
 
-    Count = 8
+    Count = 7
 }
 
 // This is NOT a MonoBehavior.

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CustomizePanel : MonoBehaviour
 {
-    public GameObject colorGrid;
+    public Transform colorGrid;
     public Image chosenColor;
     public Text chosenColorText;
 
@@ -14,22 +14,22 @@ public class CustomizePanel : MonoBehaviour
 
     void Start()
     {
-        int colorIndex = 0;
-        foreach (Button colorButton in colorGrid.GetComponentsInChildren<Button>())
+        for (int i = 0; i < colorGrid.childCount; i++)
         {
-            if (ProfileManager.inMemoryProfile.HasColor(colorIndex))
+            Image image = colorGrid.GetChild(i).GetComponent<Image>();
+            Button button = image.GetComponent<Button>();
+            if (ProfileManager.inMemoryProfile.HasColor(i))
             {
-                int colorIndexCopy = colorIndex;
-                colorButton.GetComponent<Image>().color = IndexToColor(colorIndexCopy);
-                colorButton.onClick.AddListener(() => OnColorButtonClick(colorIndexCopy));
-                colorButton.interactable = true;
+                int colorIndexCopy = i;
+                image.color = IndexToColor(colorIndexCopy);
+                button.onClick.AddListener(() => OnColorButtonClick(colorIndexCopy));
+                button.interactable = true;
             }
             else
             {
-                colorButton.GetComponent<Image>().color = Color.clear;
-                colorButton.interactable = false;
+                image.color = Color.clear;
+                button.interactable = false;
             }
-            colorIndex++;
         }
 
         colorIndex = ProfileManager.inMemoryProfile.colorIndex;
