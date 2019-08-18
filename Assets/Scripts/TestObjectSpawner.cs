@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Testing utility: spawns given prefab at (0, 0, 0) when T is pressed.
+// Testing utility: spawns given prefab at GameObject's location when T is pressed.
 public class TestObjectSpawner : MonoBehaviour
 {
     public GameObject prefab;
@@ -16,7 +16,7 @@ public class TestObjectSpawner : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            Instantiate(prefab).transform.position = Vector3.zero;
+            Instantiate(prefab).transform.position = transform.position;
         }
     }
 }

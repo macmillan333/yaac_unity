@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class AsteroidSpawner
 {
-    // Randomly chooses `number` vectors inside the rectangle min-max. All locations are guaranteed to be:
-    // - at least `minDistanceFromEachOther` units away from each other
-    // - at least `minDistanceFromOrigin` units away from (0, 0, 0)
-    // Will make 100 attempts on each location. If all attemps fail, throws InvalidOperationException.
-    public static List<Vector3> FindSpawnLocations(Vector3 min, Vector3 max, int number,
+    private static List<Vector3> OneAttemptAtFindingSpawnLocations(Vector3 min, Vector3 max, int number,
         float minDistanceFromEachOther, float minDistanceFromOrigin)
     {
         List<Vector3> locations = new List<Vector3>();
@@ -47,5 +43,28 @@ public class AsteroidSpawner
             locations.Add(l);
         }
         return locations;
+    }
+
+    // Randomly chooses `number` vectors inside the rectangle min-max. All locations are guaranteed to be:
+    // - at least `minDistanceFromEachOther` units away from each other
+    // - at least `minDistanceFromOrigin` units away from (0, 0, 0)
+    // Will make 100 attempts overall, and 100 attempts on each asteroid.
+    // If all attemps fail, throws InvalidOperationException.
+    public static List<Vector3> FindSpawnLocations(Vector3 min, Vector3 max, int number,
+        float minDistanceFromEachOther, float minDistanceFromOrigin)
+    {
+        int attempts = 0;
+        while (true)
+        {
+            try
+            {
+                attempts++;
+                return OneAttemptAtFindingSpawnLocations(min, max, number, minDistanceFromEachOther, minDistanceFromOrigin);
+            }
+            catch (System.InvalidOperationException e)
+            {
+                if (attempts >= 100) throw e;
+            }
+        }
     }
 }

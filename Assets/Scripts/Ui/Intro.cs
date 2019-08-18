@@ -14,7 +14,6 @@ public class IntroScreen
 public class Intro : MonoBehaviour
 {
     public SaveLoadPanel saveLoadPanel;
-    public GameObject skipInfoPanel;
     public List<IntroScreen> introScreens;
     public float fadeTime;
     public float restTime;
@@ -30,15 +29,11 @@ public class Intro : MonoBehaviour
 
     private void Update()
     {
-        if (isShowingIntros && Input.GetButtonDown("Pause") && !skipInfoPanel.activeSelf)
+        if (isShowingIntros && Input.GetButtonDown("Pause"))
         {
             if (ProfileManager.inMemoryProfile.HasEnhancement(Enhancement.IntroSkip))
             {
                 LoadNextScene();
-            }
-            else
-            {
-                skipInfoPanel.SetActive(true);
             }
         }
 

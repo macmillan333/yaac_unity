@@ -29,7 +29,6 @@ public class Asteroid : MonoBehaviour
     
     void Start()
     {
-        // System.Speech.Synthesis synthesis;
         AsteroidProperties properties = allProperties[tier];
         maxHp = properties.maxHp;
         hp = maxHp;

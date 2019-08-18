@@ -1400,7 +1400,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1438749325}
   - component: {fileID: 1438749326}
-  - component: {fileID: 1438749327}
   - component: {fileID: 1438749328}
   m_Layer: 0
   m_Name: Game Master
@@ -1453,35 +1452,83 @@ MonoBehaviour:
       size: 2
       maxSpeed: 5
       numSplits: 0
-    numInitialAsteroids: 1
+    numInitialAsteroids: 2
   - background: {fileID: 21300000, guid: 6e8cdd02f391bf24a923d236e9882fc6, type: 3}
     asteroidProperties:
-    - maxHp: 1
+    - maxHp: 5
+      size: 10
+      maxSpeed: 2
+      numSplits: 3
+    - maxHp: 4
       size: 5
-      maxSpeed: 0
+      maxSpeed: 4
+      numSplits: 6
+    - maxHp: 2
+      size: 1.5
+      maxSpeed: 7
       numSplits: 0
-    numInitialAsteroids: 1
+    numInitialAsteroids: 3
   - background: {fileID: 21300000, guid: 27521133e55cd4140b6bc4a6c8634283, type: 3}
     asteroidProperties:
+    - maxHp: 5
+      size: 10
+      maxSpeed: 1
+      numSplits: 2
+    - maxHp: 4
+      size: 6
+      maxSpeed: 3
+      numSplits: 3
+    - maxHp: 2
+      size: 3
+      maxSpeed: 5
+      numSplits: 4
     - maxHp: 1
-      size: 5
-      maxSpeed: 0
+      size: 1.5
+      maxSpeed: 8
       numSplits: 0
-    numInitialAsteroids: 2
+    numInitialAsteroids: 3
   - background: {fileID: 21300000, guid: 70f6943ab15c8664abd9e0f2618b9be6, type: 3}
     asteroidProperties:
-    - maxHp: 1
+    - maxHp: 6
+      size: 10
+      maxSpeed: 2
+      numSplits: 2
+    - maxHp: 5
       size: 5
-      maxSpeed: 0
+      maxSpeed: 4
+      numSplits: 3
+    - maxHp: 3
+      size: 2.5
+      maxSpeed: 6
+      numSplits: 5
+    - maxHp: 2
+      size: 1
+      maxSpeed: 10
       numSplits: 0
     numInitialAsteroids: 3
   - background: {fileID: 21300000, guid: ec5192f79a3e0ff498a8e2596827169f, type: 3}
     asteroidProperties:
+    - maxHp: 5
+      size: 10
+      maxSpeed: 1
+      numSplits: 2
+    - maxHp: 4
+      size: 6
+      maxSpeed: 3
+      numSplits: 3
+    - maxHp: 3
+      size: 4
+      maxSpeed: 5
+      numSplits: 3
+    - maxHp: 2
+      size: 2.5
+      maxSpeed: 8
+      numSplits: 3
     - maxHp: 1
-      size: 5
-      maxSpeed: 0
+      size: 1
+      maxSpeed: 12
       numSplits: 0
-    numInitialAsteroids: 4
+    numInitialAsteroids: 3
   shipPrefab: {fileID: 4869281893911607617, guid: 0a1f1b23eeea55c46a9049ca5ad36378,
     type: 3}
   lives: 3
@@ -1489,7 +1536,7 @@ MonoBehaviour:
     type: 3}
   gemPrefab: {fileID: 346163770865568285, guid: 6ff04b08f75d7d9479e398d25d0e89d8,
     type: 3}
-  powerUpDropRate: 0.1
+  powerUpDropRate: 0.15
   powerUpProperties:
   - type: 0
     material: {fileID: 2100000, guid: 20de2653289dd0e45af5967dcba3f516, type: 2}
@@ -1511,24 +1558,11 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: bd50d118887625b4598475e9470e5b59, type: 2}
     spawnChance: 10
     effectText: RAPID
-  gemDropRate: 0.12
+  gemDropRate: 0.15
   gameEnded: 0
   saveLoadPanel: {fileID: 1839167443}
   winLoseMessage: {fileID: 1790209885}
   curtain: {fileID: 1124020250}
---- !u!114 &1438749327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438749324}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39eb148a5a813534d84574a400bbf1ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 6172056759453018976, guid: bbb7f36f286454345a1829586f8290e9, type: 3}
 --- !u!114 &1438749328
 MonoBehaviour:
   m_ObjectHideFlags: 0
