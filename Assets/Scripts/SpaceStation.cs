@@ -37,7 +37,7 @@ public class SpaceStation : MonoBehaviour
     {
         containers = new List<Container>();
         // Dev path
-        ProfileManager.inMemoryProfile.gems = 1000;
+        // ProfileManager.inMemoryProfile.gems = 1000;
     }
     
     void Update()
