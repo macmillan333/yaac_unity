@@ -1,7 +1,9 @@
 # Yet Another Asteroid Clone
-A work-in-progress entry to the [r/ProgrammerHumor hackathon](https://www.programmerhumor.org/Hackathon). Play the classic Asteroid game with new features such as power ups, level editor and (gasp) loot boxes! *insert more marketing and corpspeak* This game is so fun and addicting, once you start playing, you can never put it down!
+A work-in-progress entry to the [r/ProgrammerHumor hackathon](https://www.programmerhumor.org/Hackathon).
 
-If you have enough patience to actually start the game, that is.
+Play the classic Asteroid game with new features such as power ups, customization and (gasp) surprise mechanics! This game is so fun and addicting, once you start playing, you can never put it down!
+
+If you have enough patience to start the game, that is.
 
 ---
 
@@ -38,3 +40,10 @@ Many assets in this project, including models and textures, are custom-made. The
 |Assets/Sprites/Background/SolarSystem.jpg|[This image](https://pixabay.com/photos/solar-system-big-bang-11188/)|WikiImages|Pixabay License||
 |Assets/Sprites/Announcement/AstroClub.jpg|[This image](https://pixabay.com/illustrations/science-fiction-spaceship-alien-1545307/)|tombud|Pixabay License||
 |Assets/Sprites/Announcement/SpaceStation.jpg|[This image](https://pixabay.com/illustrations/outer-space-space-ship-space-2177952/)|thefairypath|Pixabay License||
+
+---
+
+Known issues:
+
+* There is an area near the bottom-center of the screen, where all 3D sounds played become inaudible. Setting the "spread" of 3D sounds to 1 resolves the problem, but I have no idea why.
+* The initial asteroids in each area spin much faster than they should. This seems to also affect their warping.
