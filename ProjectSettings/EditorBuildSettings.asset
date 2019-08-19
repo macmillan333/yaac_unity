@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: da01741e8c226b44b9bb10602dbbd918
   - enabled: 1
+    path: Assets/Scenes/ProfileEditor.unity
+    guid: c6dd237e8ef4caf45bb3289abbf967ad
+  - enabled: 1
     path: Assets/Scenes/Licenses.unity
     guid: 997371e8eec2f8e4ea9eeedc68f41d21
+  - enabled: 1
+    path: Assets/Scenes/Story.unity
+    guid: a6424eb0c5f00a742b2dd29ae6f60eb7
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 2cb947a1fdcdd014c87ef4929c8157b4
@@ -20,7 +26,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/ProfileEditor.unity
-    guid: c6dd237e8ef4caf45bb3289abbf967ad
   m_configObjects: {}

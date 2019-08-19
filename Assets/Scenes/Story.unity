@@ -1344,6 +1344,7 @@ GameObject:
   - component: {fileID: 904664049}
   - component: {fileID: 904664048}
   - component: {fileID: 904664052}
+  - component: {fileID: 904664053}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1487,6 +1488,20 @@ PlayableDirector:
   m_ExposedReferences:
     m_References:
     - dde3030cbe59e5448991b9e421e94a57: {fileID: 904664047}
+--- !u!114 &904664053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904664047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9049aba29d41c0549acfd25ffb0f2eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subtitles: {fileID: 49082942}
+  sources: {fileID: 1283908400}
 --- !u!1 &949391872
 GameObject:
   m_ObjectHideFlags: 0

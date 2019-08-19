@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -17,6 +18,7 @@ public class Intro : MonoBehaviour
     public List<IntroScreen> introScreens;
     public float fadeTime;
     public float restTime;
+    public AudioMixer mixer;
 
     private bool isShowingIntros;
 
@@ -114,6 +116,7 @@ public class Intro : MonoBehaviour
     private void OnLoadComplete()
     {
         isShowingIntros = true;
+        AudioPanel.UpdateAudioMixer(mixer);
         StartCoroutine(ShowIntros());
     }
 }

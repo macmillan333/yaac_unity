@@ -34,20 +34,25 @@ public class AudioPanel : MonoBehaviour
         voiceText.text = voice.ToString();
         subtitleText.text = subtitles ? "Yes" : "No";
 
-        mixer.SetFloat("Music", UiValueToMixerValue(music));
-        mixer.SetFloat("Sfx", UiValueToMixerValue(sfx));
-        mixer.SetFloat("Voice", UiValueToMixerValue(voice));
-
         ProfileManager.inMemoryProfile.musicVolume = music;
         ProfileManager.inMemoryProfile.sfxVolume = sfx;
         ProfileManager.inMemoryProfile.voiceVolume = voice;
         ProfileManager.inMemoryProfile.subtitles = subtitles;
+
+        UpdateAudioMixer(mixer);
     }
 
-    private float UiValueToMixerValue(int uiValue)
+    private static float UiValueToMixerValue(int uiValue)
     {
         uiValue -= 10;
         return uiValue * uiValue * uiValue * 0.08f;
+    }
+
+    public static void UpdateAudioMixer(AudioMixer mixer)
+    {
+        mixer.SetFloat("Music", UiValueToMixerValue(ProfileManager.inMemoryProfile.musicVolume));
+        mixer.SetFloat("Sfx", UiValueToMixerValue(ProfileManager.inMemoryProfile.sfxVolume));
+        mixer.SetFloat("Voice", UiValueToMixerValue(ProfileManager.inMemoryProfile.voiceVolume));
     }
 
     public void OnMusicMinus()

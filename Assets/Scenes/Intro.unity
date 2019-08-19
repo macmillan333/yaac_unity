@@ -1210,6 +1210,7 @@ MonoBehaviour:
     stayTime: 6
   fadeTime: 0.8
   restTime: 0.5
+  mixer: {fileID: 24100000, guid: 6fdc6ab3a206e4846aeab9f6c4051cb9, type: 2}
 --- !u!1 &1624184336
 GameObject:
   m_ObjectHideFlags: 0
