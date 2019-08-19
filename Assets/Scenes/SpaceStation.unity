@@ -15050,17 +15050,23 @@ MonoBehaviour:
     title: Quiz Skip
     explanation: "You can now skip\r\nthe quizzes after\r\nagreeing to licenses.\r"
   - type: 3
+    title: Story Skip
+    explanation: 'You can now press Esc
+
+      to skip the story.'
+  - type: 4
     title: Update Skip
     explanation: "From now on the game\r\nwill no longer receive\r\nupdates."
-  - type: 4
+  - type: 5
     title: Setup Skip
     explanation: "A \"start now\" button\r\nis added to the\r\nmain menu."
-  - type: 5
-    title: Story Skip
-    explanation: (story skip explanation)
   - type: 6
     title: Tutorial Skip
-    explanation: (tutorial skip explanation)
+    explanation: 'The mandatory combat
+
+      instruction procecure
+
+      is no longer mandatory.'
 --- !u!1 &1558731114
 GameObject:
   m_ObjectHideFlags: 0

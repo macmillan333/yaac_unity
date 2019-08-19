@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class ProfileEditor : MonoBehaviour
 {
-    public Toggle canSkipIntroToggle;
-    public Toggle canImmediateAgreeToggle;
-    public Toggle canSkipQuizToggle;
-    public Toggle noUpdatesToggle;
-    public Toggle canSkipSettingsToggle;
-    public Toggle canSkipStoryToggle;
-    public Toggle canSkipTutorialToggle;
+    public Toggle introSkipToggle;
+    public Toggle instantAgreeToggle;
+    public Toggle quizSkipToggle;
+    public Toggle storySkipToggle;
+    public Toggle updateSkipToggle;
+    public Toggle setupSkipToggle;
+    public Toggle tutorialSkipToggle;
     public InputField gemsInput;
     public Transform colorPanel;
     public Text statusText;
@@ -38,13 +38,13 @@ public class ProfileEditor : MonoBehaviour
     {
         Profile p = ProfileManager.inMemoryProfile;
 
-        canSkipIntroToggle.isOn = p.HasEnhancement(Enhancement.IntroSkip);
-        canImmediateAgreeToggle.isOn = p.HasEnhancement(Enhancement.InstantAgree);
-        canSkipQuizToggle.isOn = p.HasEnhancement(Enhancement.QuizSkip);
-        noUpdatesToggle.isOn = p.HasEnhancement(Enhancement.UpdateSkip);
-        canSkipSettingsToggle.isOn = p.HasEnhancement(Enhancement.SetupSkip);
-        canSkipStoryToggle.isOn = p.HasEnhancement(Enhancement.StorySkip);
-        canSkipTutorialToggle.isOn = p.HasEnhancement(Enhancement.TutorialSkip);
+        introSkipToggle.isOn = p.HasEnhancement(Enhancement.IntroSkip);
+        instantAgreeToggle.isOn = p.HasEnhancement(Enhancement.InstantAgree);
+        quizSkipToggle.isOn = p.HasEnhancement(Enhancement.QuizSkip);
+        storySkipToggle.isOn = p.HasEnhancement(Enhancement.StorySkip);
+        updateSkipToggle.isOn = p.HasEnhancement(Enhancement.UpdateSkip);
+        setupSkipToggle.isOn = p.HasEnhancement(Enhancement.SetupSkip);
+        tutorialSkipToggle.isOn = p.HasEnhancement(Enhancement.TutorialSkip);
 
         gemsInput.text = p.gems.ToString();
 
@@ -59,13 +59,13 @@ public class ProfileEditor : MonoBehaviour
     {
         Profile p = new Profile();
 
-        p.SetEnhancement(Enhancement.IntroSkip, canSkipIntroToggle.isOn);
-        p.SetEnhancement(Enhancement.InstantAgree, canImmediateAgreeToggle.isOn);
-        p.SetEnhancement(Enhancement.QuizSkip, canSkipQuizToggle.isOn);
-        p.SetEnhancement(Enhancement.UpdateSkip, noUpdatesToggle.isOn);
-        p.SetEnhancement(Enhancement.SetupSkip, canSkipSettingsToggle.isOn);
-        p.SetEnhancement(Enhancement.StorySkip, canSkipStoryToggle.isOn);
-        p.SetEnhancement(Enhancement.TutorialSkip, canSkipTutorialToggle.isOn);
+        p.SetEnhancement(Enhancement.IntroSkip, introSkipToggle.isOn);
+        p.SetEnhancement(Enhancement.InstantAgree, instantAgreeToggle.isOn);
+        p.SetEnhancement(Enhancement.QuizSkip, quizSkipToggle.isOn);
+        p.SetEnhancement(Enhancement.StorySkip, storySkipToggle.isOn);
+        p.SetEnhancement(Enhancement.UpdateSkip, updateSkipToggle.isOn);
+        p.SetEnhancement(Enhancement.SetupSkip, setupSkipToggle.isOn);
+        p.SetEnhancement(Enhancement.TutorialSkip, tutorialSkipToggle.isOn);
 
         p.gems = int.Parse(gemsInput.text);
 

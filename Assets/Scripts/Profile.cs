@@ -11,9 +11,9 @@ public enum Enhancement
     IntroSkip = 0,
     InstantAgree = 1,
     QuizSkip = 2,
-    UpdateSkip = 3,
-    SetupSkip = 4,
-    StorySkip = 5,
+    StorySkip = 3,
+    UpdateSkip = 4,
+    SetupSkip = 5,
     TutorialSkip = 6,
 
     Count = 7

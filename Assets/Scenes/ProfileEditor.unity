@@ -5880,7 +5880,7 @@ GameObject:
   - component: {fileID: 203509191}
   - component: {fileID: 203509190}
   m_Layer: 5
-  m_Name: Feature Panel
+  m_Name: Enhancement Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5900,9 +5900,9 @@ RectTransform:
   - {fileID: 497878499}
   - {fileID: 1782677323}
   - {fileID: 449915662}
+  - {fileID: 1229711446}
   - {fileID: 591545174}
   - {fileID: 679440596}
-  - {fileID: 1229711446}
   - {fileID: 375272380}
   - {fileID: 237989475}
   m_Father: {fileID: 308422569}
@@ -10879,13 +10879,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460d493310e629b40ace4499a73928dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSkipIntroToggle: {fileID: 497878500}
-  canImmediateAgreeToggle: {fileID: 1782677324}
-  canSkipQuizToggle: {fileID: 449915663}
-  noUpdatesToggle: {fileID: 591545175}
-  canSkipSettingsToggle: {fileID: 679440597}
-  canSkipStoryToggle: {fileID: 1229711447}
-  canSkipTutorialToggle: {fileID: 375272379}
+  introSkipToggle: {fileID: 0}
+  instantAgreeToggle: {fileID: 0}
+  quizSkipToggle: {fileID: 0}
+  storySkipToggle: {fileID: 0}
+  updateSkipToggle: {fileID: 0}
+  setupSkipToggle: {fileID: 0}
+  tutorialSkipToggle: {fileID: 0}
   gemsInput: {fileID: 617191839}
   colorPanel: {fileID: 181667172}
   statusText: {fileID: 799449636}
@@ -13495,7 +13495,7 @@ GameObject:
   - component: {fileID: 375272380}
   - component: {fileID: 375272379}
   m_Layer: 5
-  m_Name: Can Skip Tutorial
+  m_Name: Tutorial Skip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15930,7 +15930,7 @@ GameObject:
   - component: {fileID: 449915662}
   - component: {fileID: 449915663}
   m_Layer: 5
-  m_Name: Can Skip Quiz
+  m_Name: Quiz Skip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17219,7 +17219,7 @@ GameObject:
   - component: {fileID: 497878499}
   - component: {fileID: 497878500}
   m_Layer: 5
-  m_Name: Can Skip Intro
+  m_Name: Intro Skip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20500,7 +20500,7 @@ GameObject:
   - component: {fileID: 591545174}
   - component: {fileID: 591545175}
   m_Layer: 5
-  m_Name: No Updates
+  m_Name: Update Skip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20520,7 +20520,7 @@ RectTransform:
   - {fileID: 547876240}
   - {fileID: 25935899}
   m_Father: {fileID: 203509189}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -24429,7 +24429,7 @@ GameObject:
   - component: {fileID: 679440596}
   - component: {fileID: 679440597}
   m_Layer: 5
-  m_Name: Can Skip Settings
+  m_Name: Setup Skip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24449,7 +24449,7 @@ RectTransform:
   - {fileID: 1153778196}
   - {fileID: 1186640857}
   m_Father: {fileID: 203509189}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -41988,7 +41988,7 @@ GameObject:
   - component: {fileID: 1229711446}
   - component: {fileID: 1229711447}
   m_Layer: 5
-  m_Name: Can Skip Story
+  m_Name: Story Skip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42008,7 +42008,7 @@ RectTransform:
   - {fileID: 505434274}
   - {fileID: 705697729}
   m_Father: {fileID: 203509189}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -61056,7 +61056,7 @@ GameObject:
   - component: {fileID: 1782677323}
   - component: {fileID: 1782677324}
   m_Layer: 5
-  m_Name: Can Immediate Agree
+  m_Name: Instant Agree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
