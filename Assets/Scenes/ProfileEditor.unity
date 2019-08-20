@@ -10879,13 +10879,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460d493310e629b40ace4499a73928dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introSkipToggle: {fileID: 0}
-  instantAgreeToggle: {fileID: 0}
-  quizSkipToggle: {fileID: 0}
-  storySkipToggle: {fileID: 0}
-  updateSkipToggle: {fileID: 0}
-  setupSkipToggle: {fileID: 0}
-  tutorialSkipToggle: {fileID: 0}
+  introSkipToggle: {fileID: 497878500}
+  instantAgreeToggle: {fileID: 1782677324}
+  quizSkipToggle: {fileID: 449915663}
+  storySkipToggle: {fileID: 1229711447}
+  updateSkipToggle: {fileID: 591545175}
+  setupSkipToggle: {fileID: 679440597}
+  tutorialSkipToggle: {fileID: 375272379}
   gemsInput: {fileID: 617191839}
   colorPanel: {fileID: 181667172}
   statusText: {fileID: 799449636}
