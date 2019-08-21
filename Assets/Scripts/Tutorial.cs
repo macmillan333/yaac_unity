@@ -2,36 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
-using UnityEngine.SceneManagement;
 
-public class Story : MonoBehaviour
+public class Tutorial : MonoBehaviour
 {
     public GameObject subtitles;
-    public GameObject sources;
+    public Curtain curtain;
 
     void Start()
     {
         subtitles.SetActive(ProfileManager.inMemoryProfile.subtitles);
-        sources.SetActive(ProfileManager.inMemoryProfile.subtitles);
         GetComponent<PlayableDirector>().stopped += OnStopped;
     }
 
     private void OnStopped(PlayableDirector obj)
     {
-        GotoMainMenu();
+        GotoGame();
     }
-
+    
     void Update()
     {
-        if (Input.GetButtonDown("Pause") && ProfileManager.inMemoryProfile.HasEnhancement(Enhancement.StorySkip))
+        if (Input.GetButtonDown("Pause") && ProfileManager.inMemoryProfile.HasEnhancement(Enhancement.TutorialSkip))
         {
-            GotoMainMenu();
+            GotoGame();
         }
     }
 
-    private void GotoMainMenu()
+    private void GotoGame()
     {
         GetComponent<PlayableDirector>().stopped -= OnStopped;
-        SceneManager.LoadScene(Scenes.mainMenu);
+        curtain.DrawAndGotoScene(Scenes.game);
     }
 }

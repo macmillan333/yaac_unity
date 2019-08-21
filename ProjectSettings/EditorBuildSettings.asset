@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SpaceStation.unity
     guid: 138c833f424b5d448bcb60c5b68d9824
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 2f5ac73bc4b3cff408db72cd5512b8a9
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
