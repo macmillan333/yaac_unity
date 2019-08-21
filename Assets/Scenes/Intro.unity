@@ -465,6 +465,8 @@ MonoBehaviour:
   m_Text: 'Gamepads not supported.
 
 
+    Please use a mouse to navigate menus, and a keyboard to play the game.
+
     This is a hackathon. What do you expect.'
 --- !u!222 &666895518
 CanvasRenderer:
@@ -1193,7 +1195,7 @@ MonoBehaviour:
   - subject: {fileID: 1268143467}
     stayTime: 6
   - subject: {fileID: 666895515}
-    stayTime: 4
+    stayTime: 6
   - subject: {fileID: 50178427}
     stayTime: 6
   - subject: {fileID: 807542514}
