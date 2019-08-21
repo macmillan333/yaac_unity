@@ -18,6 +18,9 @@ public class PowerUpMedal : MonoBehaviour
     private const float rotationSpeed = 75f;
     private PowerUpProperties properties;
 
+    public bool useOverride;
+    public PowerUpProperties overrideProperties;
+
     public PowerUpProperties GetProperties()
     {
         return properties;
@@ -37,6 +40,12 @@ public class PowerUpMedal : MonoBehaviour
 
     private void Pick()
     {
+        if (useOverride)
+        {
+            properties = overrideProperties;
+            return;
+        }
+
         int totalTickets = 0;
         foreach (PowerUpProperties p in GameMaster.instance.powerUpProperties)
         {

@@ -6,7 +6,11 @@ public class Asteroid : MonoBehaviour
 {
     private List<AsteroidProperties> allProperties
     {
-        get { return GameMaster.instance.GetCurrentLevel().asteroidProperties; }
+        get
+        {
+            if (inTutorial) return overridePropertiesList;
+            return GameMaster.instance.GetCurrentLevel().asteroidProperties;
+        }
     }
     // Index into |allProperties|.
     private int tier;
@@ -18,6 +22,10 @@ public class Asteroid : MonoBehaviour
     public GameObject explosionPrefab;
     public GameObject bulletSparkPrefab;
     public GameObject missileSparkPrefab;
+
+    public bool inTutorial;
+    public List<AsteroidProperties> overridePropertiesList;
+    private List<GameObject> spawnedAsteroids;
 
     public static int count;
     public static event Delegates.Void LastAsteroidDestroyed;
@@ -41,7 +49,12 @@ public class Asteroid : MonoBehaviour
 
         // Randomly choose an axis to apply torque
         Vector3 axis = Random.onUnitSphere;
-        GetComponent<Rigidbody>().AddTorque(axis * speed * 100f);
+        GetComponent<Rigidbody>().AddTorque(axis * Mathf.Max(speed, 1f) * 100f);
+
+        if (inTutorial)
+        {
+            spawnedAsteroids = new List<GameObject>();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -87,22 +100,33 @@ public class Asteroid : MonoBehaviour
                 {
                     SpawnNextTierAsteroids();
                 }
-                if (Random.value <= GameMaster.instance.powerUpDropRate)
+                if (!inTutorial)
                 {
-                    GameObject medal = Instantiate(GameMaster.instance.powerUpMedalPrefab);
-                    medal.transform.position = transform.position;
-                    // It's up to the medal itself to decide its type.
-                }
-                else if (Random.value <= GameMaster.instance.gemDropRate)
-                {
-                    GameObject gem = Instantiate(GameMaster.instance.gemPrefab);
-                    gem.transform.position = transform.position;
+                    if (Random.value <= GameMaster.instance.powerUpDropRate)
+                    {
+                        GameObject medal = Instantiate(GameMaster.instance.powerUpMedalPrefab);
+                        medal.transform.position = transform.position;
+                        // It's up to the medal itself to decide its type.
+                    }
+                    else if (Random.value <= GameMaster.instance.gemDropRate)
+                    {
+                        GameObject gem = Instantiate(GameMaster.instance.gemPrefab);
+                        gem.transform.position = transform.position;
+                    }
                 }
                 GameObject explosion = Instantiate(explosionPrefab);
                 explosion.transform.position = transform.position;
                 float scale = transform.localScale.x * 0.1f;
                 explosion.transform.localScale = new Vector3(scale, scale, scale);
-                Destroy(gameObject);
+                if (inTutorial)
+                {
+                    GetComponent<Renderer>().enabled = false;
+                    GetComponent<Collider>().enabled = false;
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
@@ -122,6 +146,11 @@ public class Asteroid : MonoBehaviour
             asteroid.transform.position = l;
             asteroid.transform.localScale = new Vector3(nextDiameter, nextDiameter, nextDiameter);
             asteroid.GetComponent<Asteroid>().SetTier(tier + 1);
+
+            if (inTutorial)
+            {
+                spawnedAsteroids.Add(asteroid);
+            }
         }
     }
 
@@ -131,6 +160,14 @@ public class Asteroid : MonoBehaviour
         if (count == 0)
         {
             LastAsteroidDestroyed?.Invoke();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (inTutorial)
+        {
+            foreach (GameObject a in spawnedAsteroids) Destroy(a);
         }
     }
 }

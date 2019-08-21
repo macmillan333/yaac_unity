@@ -27,6 +27,12 @@ public class ShipControl : MonoBehaviour
     public GameObject powerUpPickUpEffect;
     public GameObject explosionEffect;
 
+    public bool overrideInput;
+    public int overrideHorizontal;
+    public bool overrideThrust;
+    public bool overrideBrake;
+    public bool overrideFire;
+
     public static event Delegates.Void ShipDestroyed;
     public static event Delegates.Void PickedUpOneUp;
     
@@ -45,6 +51,19 @@ public class ShipControl : MonoBehaviour
     
     void Update()
     {
+        // Get input
+        float horizontal = Input.GetAxis("Horizontal");
+        bool thrustButton = Input.GetButton("Thrust");
+        bool brakeButton = Input.GetButton("Brake");
+        bool fireButton = Input.GetButton("Fire");
+        if (overrideInput)
+        {
+            horizontal = overrideHorizontal;
+            thrustButton = overrideThrust;
+            brakeButton = overrideBrake;
+            fireButton = overrideFire;
+        }
+
         // Shield
         if (shield.activeSelf)
         {
@@ -56,7 +75,6 @@ public class ShipControl : MonoBehaviour
         }
 
         // Turn
-        float horizontal = Input.GetAxis("Horizontal");
         GetComponent<Rigidbody>().AddTorque(0f, horizontal * torque, 0f);
 
         // Thrust / brake
@@ -64,8 +82,8 @@ public class ShipControl : MonoBehaviour
         // No idea why x needs to be negated. It's a hackathon. Who cares.
         Vector3 facingDirection = new Vector3(-Mathf.Cos(angleInRadian), 0f, Mathf.Sin(angleInRadian));
         float vertical = 0f;
-        if (Input.GetButton("Thrust")) vertical = 1f;
-        if (Input.GetButton("Brake")) vertical = -1f;
+        if (thrustButton) vertical = 1f;
+        if (brakeButton) vertical = -1f;
         GetComponent<Rigidbody>().AddForce(facingDirection * vertical * thrust);
         ParticleSystem.EmissionModule emissionModule = fireEffect.emission;
         emissionModule.enabled = vertical > 0f;
@@ -76,7 +94,7 @@ public class ShipControl : MonoBehaviour
         {
             timeUntilNextShot -= Time.deltaTime;  // deltaTime is affected by timeScale
         }
-        if (Input.GetButton("Fire") && timeUntilNextShot <= 0f)
+        if (fireButton && timeUntilNextShot <= 0f)
         {
             timeUntilNextShot = effectiveShootInterval;
             if (numMissiles > 0)
