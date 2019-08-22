@@ -21,7 +21,6 @@ public class SpeedCap : MonoBehaviour
         if (speed > maxSpeed)
         {
             body.velocity = body.velocity.normalized * maxSpeed;
-            Debug.Log("Capped speed from " + speed + " to " + maxSpeed);
         }
     }
 }

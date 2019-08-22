@@ -1889,6 +1889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1745279323}
   - component: {fileID: 1745279322}
+  - component: {fileID: 1745279324}
   m_Layer: 0
   m_Name: Jukebox
   m_TagString: Untagged
@@ -1908,10 +1909,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -2229396156803627744, guid: 6fdc6ab3a206e4846aeab9f6c4051cb9,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: fb6bc5066764f93478baf322ab0b83d7, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2007,6 +2008,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1745279324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745279321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eaafb97235411b49b614bdc230d5961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loopStart: 32
+  loopEnd: 112
 --- !u!1 &1790209885
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,11 +2299,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Curtain
       objectReference: {fileID: 0}
-    - target: {fileID: 8611795499643945273, guid: 7c810cb0ec6f04e40a1c75e679d1e0fa,
-        type: 3}
-      propertyPath: jukebox
-      value: 
-      objectReference: {fileID: 1745279322}
     - target: {fileID: 8611795499643945274, guid: 7c810cb0ec6f04e40a1c75e679d1e0fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2394,6 +2404,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8611795499643945273, guid: 7c810cb0ec6f04e40a1c75e679d1e0fa,
+        type: 3}
+      propertyPath: jukebox
+      value: 
+      objectReference: {fileID: 1745279322}
     - target: {fileID: 8611795499643945275, guid: 7c810cb0ec6f04e40a1c75e679d1e0fa,
         type: 3}
       propertyPath: m_Color.a
