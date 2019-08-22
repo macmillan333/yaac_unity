@@ -145,7 +145,7 @@ public class Asteroid : MonoBehaviour
             asteroid.transform.position = l;
             asteroid.transform.localScale = new Vector3(nextDiameter, nextDiameter, nextDiameter);
             asteroid.GetComponent<Asteroid>().SetTier(tier + 1);
-            count++;
+            if (!inTutorial) count++;
 
             if (inTutorial)
             {
@@ -156,6 +156,7 @@ public class Asteroid : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (inTutorial) return;
         count--;
         if (count == 0)
         {
