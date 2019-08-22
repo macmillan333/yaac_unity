@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Curtain : MonoBehaviour
 {
     public bool fadeInOnStart;
+    public AudioSource jukebox;
 
     private void Start()
     {
@@ -40,10 +41,13 @@ public class Curtain : MonoBehaviour
         float timer = 0f;
         const float fadeTime = 1f;
         curtain.color = Color.clear;
+        float jukeboxStartVolume = 0f;
+        if (jukebox != null) jukeboxStartVolume = jukebox.volume;
         while (timer < fadeTime)
         {
             float progress = timer / fadeTime;
             curtain.color = new Color(0f, 0f, 0f, progress);
+            if (jukebox != null) jukebox.volume = jukeboxStartVolume * (1f - progress);
             timer += Time.deltaTime;
             yield return null;
         }

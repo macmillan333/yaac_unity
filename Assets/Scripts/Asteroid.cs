@@ -93,7 +93,7 @@ public class Asteroid : MonoBehaviour
             hp -= damage;
             Instantiate(spark).transform.position = other.transform.position;
             Destroy(other.gameObject);
-            if (hp <= 0)
+            if ((hp + damage) > 0 && hp <= 0)
             {
                 if (tier < allProperties.Count - 1)
                 {

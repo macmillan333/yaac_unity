@@ -30,6 +30,11 @@ Many assets in this project, including models and textures, are custom-made. The
 |Assets/Sfx/GetCard.wav|[UI Completed Status Alert Notification SFX001.wav](https://freesound.org/people/Headphaze/sounds/277033/)|Headphaze|Attribution License||
 |Assets/Sfx/ContainerDrop.wav|[GateShutThumps.wav](https://freesound.org/people/eardeer/sounds/401041/)|eardeer|Creative Commons 0 License|trimmed|
 |Assets/Sfx/ContainerOpen.wav|[Opening the sarcophagus](https://freesound.org/people/Breviceps/sounds/457529/)|Breviceps|Creative Commons 0 License|trimmed|
+|Assets/Music/Story.ogg|[Space Game Theme Loop.wav](https://freesound.org/people/Mrthenoronha/sounds/371516/)|Mrthenoronha|Attribution License|converted|
+|Assets/Music/Title.ogg|[Skibka - Music_Cosmos_1.mp3](https://freesound.org/people/SkibkaMusic/sounds/477601/)|SkibkaMusic|Creative Common 0 License|converted|
+|Assets/Music/SpaceStation.ogg|[hawzy_2.wav](https://freesound.org/people/ptonic/sounds/428687/)|ptonic|Creative Commons 0 License|converted|
+|Assets/Music/Tutorial.ogg|[Marching Mice.wav](https://freesound.org/people/kantouth/sounds/104984/)|kantouth|Attribution License|converted|
+|Assets/Music/Game.ogg|[minimal electronic grove _Techno loop track](https://freesound.org/people/frankum/sounds/397166/)|frankum|Attribution License|converted|
 |Assets/Fonts/Blinker/*|[Blinker](https://fonts.google.com/specimen/Blinker?selection.family=Blinker)|Juergen Huber|Open Font License||
 |Assets/Fonts/Roboto/*|[Roboto](https://fonts.google.com/specimen/Roboto?selection.family=Roboto)|Christian Robertson|Apache License Version 2.0||
 |Assets/Sprites/Background/Cosmos.jpg|[This image](https://pixabay.com/photos/cosmos-dark-hd-wallpaper-milky-way-1853491/)|Pexels|Pixabay License||
