@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6313821594316085922}
   - component: {fileID: 6313821594316085923}
   - component: {fileID: 3058293007875197684}
+  - component: {fileID: 8616797125850559374}
   m_Layer: 11
   m_Name: Asteroid
   m_TagString: Untagged
@@ -143,3 +144,19 @@ MonoBehaviour:
     type: 3}
   missileSparkPrefab: {fileID: 6172056759453018976, guid: 90fb2c31738deda44895e40db4964055,
     type: 3}
+  inTutorial: 0
+  overridePropertiesList: []
+--- !u!114 &8616797125850559374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313821594316085924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfe02ee0c02b994d87b487f15131b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  maxAngularSpeed: 2

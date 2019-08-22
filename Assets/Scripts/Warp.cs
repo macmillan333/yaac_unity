@@ -16,9 +16,10 @@ public class Warp : MonoBehaviour
         Collider collider = GetComponent<Collider>();
         body = GetComponent<Rigidbody>();
         if (collider == null) return;
-        extent = collider.bounds.extents.x;
-        if (collider.bounds.extents.y > extent) extent = collider.bounds.extents.y;
-        if (collider.bounds.extents.z > extent) extent = collider.bounds.extents.z;
+        extent = transform.localScale.x;
+        if (transform.localScale.y > extent) extent = transform.localScale.y;
+        if (transform.localScale.z > extent) extent = transform.localScale.z;
+        extent *= 0.5f;
     }
 
     private void Update()

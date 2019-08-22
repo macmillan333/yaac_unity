@@ -40,7 +40,6 @@ public class Asteroid : MonoBehaviour
         AsteroidProperties properties = allProperties[tier];
         maxHp = properties.maxHp;
         hp = maxHp;
-        count++;
 
         float speed = (Random.value * 0.5f + 0.5f) * properties.maxSpeed;
         float angle = Random.value * Mathf.PI * 2f;
@@ -146,6 +145,7 @@ public class Asteroid : MonoBehaviour
             asteroid.transform.position = l;
             asteroid.transform.localScale = new Vector3(nextDiameter, nextDiameter, nextDiameter);
             asteroid.GetComponent<Asteroid>().SetTier(tier + 1);
+            count++;
 
             if (inTutorial)
             {

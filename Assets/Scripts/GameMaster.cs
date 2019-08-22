@@ -108,6 +108,7 @@ public class GameMaster : MonoBehaviour
             asteroid.transform.position = l;
             asteroid.transform.localScale = new Vector3(diameter, diameter, diameter);
             asteroid.GetComponent<Asteroid>().SetTier(0);
+            Asteroid.count++;
         }
     }
 
