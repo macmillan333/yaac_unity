@@ -1454,7 +1454,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 2c326114c535f0746a41ef35f89a1ef7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -21159,11 +21159,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Curtain
       objectReference: {fileID: 0}
-    - target: {fileID: 8611795499643945273, guid: 7c810cb0ec6f04e40a1c75e679d1e0fa,
-        type: 3}
-      propertyPath: jukebox
-      value: 
-      objectReference: {fileID: 108245008}
     - target: {fileID: 8611795499643945274, guid: 7c810cb0ec6f04e40a1c75e679d1e0fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21269,6 +21264,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8611795499643945273, guid: 7c810cb0ec6f04e40a1c75e679d1e0fa,
+        type: 3}
+      propertyPath: jukebox
+      value: 
+      objectReference: {fileID: 108245008}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c810cb0ec6f04e40a1c75e679d1e0fa, type: 3}
 --- !u!224 &2140526947 stripped

@@ -55,11 +55,4 @@ Many assets in this project, including models and textures, are custom-made. The
 Known issues:
 
 * There is an area near the bottom-center of the screen, where all 3D sounds played become inaudible. Setting the "spread" of 3D sounds to 1 resolves the problem, but I have no idea why.
-
-Title.ogg
-80 BPM, 60/80 (0.75) seconds per beat
-Loop: bar 5 - bar 25, beat 17 - beat 97, 12.000s - 72.000s
-
-Game.ogg
-120 BPM, 60 / 120 (0.5) seconds per beat
-Loop: bar 17 - bar 57, beat 65 - beat 225, 32.000s - 112.000s
+* The initial asteroids of each area spin much faster than they should. This does not affect gameplay but it's still weird.
