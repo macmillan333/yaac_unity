@@ -1,5 +1,6 @@
 # Yet Another Asteroid Clone
-A work-in-progress entry to the [r/ProgrammerHumor hackathon](https://www.programmerhumor.org/Hackathon).
+
+An entry to the [r/ProgrammerHumor hackathon](https://www.programmerhumor.org/Hackathon).
 
 Play the classic Asteroid game with new features such as power ups, customization and (gasp) surprise mechanics! This game is so fun and addicting, once you start playing, you can never put it down!
 
@@ -7,9 +8,25 @@ If you have enough patience to start the game, that is.
 
 ---
 
-Built on Unity 2019.2.1f1.
+## To play
 
-Many assets in this project, including models and textures, are custom-made. The following assets are acquired from external resources, or are based on them:
+If you are using Windows 64-bit, download and unzip Yaac.zip, then run "Yet Another Asteroid Clone.exe". If you are using other OSes, you have to build a binary yourself.
+
+All UI and game logic is designed for a screen resolution of 1920x1080@60Hz. You are encouraged to set your screen to the same resolution before starting the game.
+
+---
+
+## To build
+
+Install Unity 2019.2.1f1, clone this repo, then open the directory from Unity. Hopefully there shouldn't be any warnings or errors. In Unity, click "File-->Build Settings" to build.
+
+This project should work on all desktop OSes, but I have only tested it on Windows 10 64-bit.
+
+---
+
+## Attributions
+
+The following assets are acquired from external resources, or are based on them:
 
 |Asset|Origin|Author|License|Modification (if any)|
 |--|--|--|--|--|
@@ -52,7 +69,7 @@ Many assets in this project, including models and textures, are custom-made. The
 
 ---
 
-Known issues:
+## Known issues
 
 * There is an area near the bottom-center of the screen, where all 3D sounds played become inaudible. Setting the "spread" of 3D sounds to 1 resolves the problem, but I have no idea why.
 * The initial asteroids of each area spin much faster than they should. This does not affect gameplay but it's still weird.
