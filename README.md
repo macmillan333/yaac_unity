@@ -6,23 +6,17 @@ Play the classic Asteroid game with new features such as power ups, customizatio
 
 If you have enough patience to start the game, that is.
 
----
-
 ## To play
 
 If you are using Windows 64-bit, download and unzip Yaac.zip, then run "Yet Another Asteroid Clone.exe". If you are using other OSes, you have to build a binary yourself.
 
 All UI and game logic is designed for a screen resolution of 1920x1080@60Hz. You are encouraged to set your screen to the same resolution before starting the game.
 
----
-
 ## To build
 
 Install Unity 2019.2.1f1, clone this repo, then open the directory from Unity. Hopefully there shouldn't be any warnings or errors. In Unity, click "File-->Build Settings" to build.
 
 This project should work on all desktop OSes, but I have only tested it on Windows 10 64-bit.
-
----
 
 ## Attributions
 
@@ -66,8 +60,6 @@ The following assets are acquired from external resources, or are based on them:
 |Assets/Sprites/Story/Story2.jpg|[This image](https://pixabay.com/photos/sun-fireball-solar-flare-sunlight-11582/)|WikiImages|Pixabay License||
 |Assets/Sprites/Story/Story3.jpg|[This image](https://pixabay.com/illustrations/sunrise-space-outer-space-globe-1756274/)|qimono|Pixabay License||
 |Assets/Sprites/Story/Story4.jpg|[This image](https://pixabay.com/illustrations/space-asteroids-planets-cosmos-1422642/)|UKT2|Pixbay License||
-
----
 
 ## Known issues
 
