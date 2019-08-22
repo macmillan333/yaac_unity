@@ -16,6 +16,8 @@ All UI and game logic is designed for a screen resolution of 1920x1080@60Hz. You
 
 Install Unity 2019.2.1f1, clone this repo, then open the directory from Unity. Hopefully there shouldn't be any warnings or errors. In Unity, click "File-->Build Settings" to build.
 
+You should be able build this game with a Unity version later than 2019.2.1f1, but no guarantees.
+
 This project should work on all desktop OSes, but I have only tested it on Windows 10 64-bit.
 
 ## Attributions
