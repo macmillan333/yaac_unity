@@ -10,13 +10,13 @@ If you have enough patience to start the game, that is.
 
 If you are using Windows 64-bit, download and unzip Yaac.zip, then run "Yet Another Asteroid Clone.exe". If you are using other OSes, you have to build a binary yourself.
 
-All UI and game logic is designed for a screen resolution of 1920x1080@60Hz. You are encouraged to set your screen to the same resolution before starting the game.
+All UI and game logic is designed for an aspect ratio of 16:9 and refresh rate of 60Hz. Using other aspect ratios or refresh rates may cause the game to behave abnormally.
 
 ## To build
 
-Install Unity 2019.2.1f1, clone this repo, then open the directory from Unity. Hopefully there shouldn't be any warnings or errors. In Unity, click "File-->Build Settings" to build.
+Install [Unity 2019.2.2f1](https://unity3d.com/get-unity/download/archive), clone this repo, then open the directory from Unity or Unity Hub as a project. Hopefully there shouldn't be any warnings or errors. In Unity, click "File-->Build Settings" to build.
 
-You should be able build this game with a Unity version later than 2019.2.1f1, but no guarantees.
+You may be able build this game with a Unity version later than 2019.2.2f1, but no guarantees.
 
 This project should work on all desktop OSes, but I have only tested it on Windows 10 64-bit.
 
