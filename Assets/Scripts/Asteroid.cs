@@ -46,6 +46,9 @@ public class Asteroid : MonoBehaviour
         GetComponent<Rigidbody>().velocity = new Vector3(
             Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * speed;
 
+        float size = transform.localScale.x;
+        GetComponent<Rigidbody>().mass = size * size * size;
+
         // Randomly choose an axis to apply torque
         Vector3 axis = Random.onUnitSphere;
         GetComponent<Rigidbody>().AddTorque(axis * Mathf.Max(speed, 1f) * 100f);

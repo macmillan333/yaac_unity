@@ -4977,6 +4977,11 @@ MonoBehaviour:
     type: 3}
   explosionEffect: {fileID: 6172056759453018976, guid: bbb7f36f286454345a1829586f8290e9,
     type: 3}
+  overrideInput: 0
+  overrideHorizontal: 0
+  overrideThrust: 0
+  overrideBrake: 0
+  overrideFire: 0
 --- !u!82 &6394831471814649715
 AudioSource:
   m_ObjectHideFlags: 0

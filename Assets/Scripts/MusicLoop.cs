@@ -6,18 +6,18 @@ public class MusicLoop : MonoBehaviour
 {
     public float loopStart;
     public float loopEnd;
-    private AudioSource audio;
+    private AudioSource source;
 
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
     }
     
     void Update()
     {
-        if (audio.time > loopEnd)
+        if (source.time > loopEnd)
         {
-            audio.time = loopStart + (loopEnd - audio.time);
+            source.time = loopStart + (loopEnd - source.time);
         }
     }
 }
