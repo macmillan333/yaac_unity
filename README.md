@@ -56,8 +56,8 @@ The following assets are acquired from external resources, or are based on them.
 |Assets/Sprites/Background/OrionNebula.jpg|[This image](https://pixabay.com/photos/orion-nebula-emission-nebula-11107/)|WikiImages|Pixabay License||
 |Assets/Sprites/Background/Sky.jpg|[This image](https://pixabay.com/photos/sky-stars-constellations-astronomy-828648/)|Free-Photos|Pixabay License||
 |Assets/Sprites/Background/SolarSystem.jpg|[This image](https://pixabay.com/photos/solar-system-big-bang-11188/)|WikiImages|Pixabay License||
+|Assets/Sprites/Background/SpaceStation.jpg|[This image](https://pixabay.com/illustrations/outer-space-space-ship-space-2177952/)|thefairypath|Pixabay License||
 |Assets/Sprites/Announcement/AstroClub.jpg|[This image](https://pixabay.com/illustrations/science-fiction-spaceship-alien-1545307/)|tombud|Pixabay License||
-|Assets/Sprites/Announcement/SpaceStation.jpg|[This image](https://pixabay.com/illustrations/outer-space-space-ship-space-2177952/)|thefairypath|Pixabay License||
 |Assets/Sprites/Story/Story1.jpg|[This image](https://pixabay.com/illustrations/explosion-pop-big-bang-background-1285364/)|geralt|Pixabay License||
 |Assets/Sprites/Story/Story2.jpg|[This image](https://pixabay.com/photos/sun-fireball-solar-flare-sunlight-11582/)|WikiImages|Pixabay License||
 |Assets/Sprites/Story/Story3.jpg|[This image](https://pixabay.com/illustrations/sunrise-space-outer-space-globe-1756274/)|qimono|Pixabay License||
