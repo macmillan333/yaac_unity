@@ -48,6 +48,7 @@ public class GameMaster : MonoBehaviour
     public int lives;
     private GameObject ship_;
     public GameObject ship { get { return ship_; } }
+    public Animator postProcessingAnimator;
 
     public GameObject powerUpMedalPrefab;
     public GameObject gemPrefab;
@@ -135,6 +136,7 @@ public class GameMaster : MonoBehaviour
     private void OnShipDestroyed()
     {
         ship_ = null;
+        postProcessingAnimator.SetTrigger("ApplyPostProcessing");
         StartCoroutine(WaitAndMaybeRespawnShip());
     }
 
