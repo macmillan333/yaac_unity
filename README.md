@@ -61,9 +61,8 @@ The following assets are acquired from external resources, or are based on them:
 |Assets/Sprites/Story/Story1.jpg|[This image](https://pixabay.com/illustrations/explosion-pop-big-bang-background-1285364/)|geralt|Pixabay License||
 |Assets/Sprites/Story/Story2.jpg|[This image](https://pixabay.com/photos/sun-fireball-solar-flare-sunlight-11582/)|WikiImages|Pixabay License||
 |Assets/Sprites/Story/Story3.jpg|[This image](https://pixabay.com/illustrations/sunrise-space-outer-space-globe-1756274/)|qimono|Pixabay License||
-|Assets/Sprites/Story/Story4.jpg|[This image](https://pixabay.com/illustrations/space-asteroids-planets-cosmos-1422642/)|UKT2|Pixbay License||
+|Assets/Sprites/Story/Story4.jpg|[This image](https://pixabay.com/illustrations/space-asteroids-planets-cosmos-1422642/)|UKT2|Pixabay License||
 
 ## Known issues
 
 * There is an area near the bottom-center of the screen, where all 3D sounds played become inaudible. Setting the "spread" of 3D sounds to 1 resolves the problem, but I have no idea why.
-* The initial asteroids of each area spin much faster than they should. This does not affect gameplay but it's still weird.
