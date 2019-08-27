@@ -35,6 +35,12 @@ public class Curtain : MonoBehaviour
         StartCoroutine(DrawCurtainThenGotoScene(scene));
     }
 
+    public void DrawAndFakeLoadIntoScene(int scene)
+    {
+        Loading.nextScene = scene;
+        StartCoroutine(DrawCurtainThenGotoScene(Scenes.loading));
+    }
+
     private IEnumerator DrawCurtainThenGotoScene(int scene)
     {
         Image curtain = GetComponent<Image>();

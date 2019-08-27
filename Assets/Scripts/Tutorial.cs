@@ -30,6 +30,6 @@ public class Tutorial : MonoBehaviour
     private void GotoGame()
     {
         GetComponent<PlayableDirector>().stopped -= OnStopped;
-        curtain.DrawAndGotoScene(Scenes.game);
+        curtain.DrawAndFakeLoadIntoScene(Scenes.game);
     }
 }

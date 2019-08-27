@@ -192,7 +192,7 @@ public class TitleScreen : MonoBehaviour
     {
         mainMenu.SetActive(false);
         step = Step.EnteringGame;
-        curtain.DrawAndGotoScene(Scenes.tutorial);
+        curtain.DrawAndFakeLoadIntoScene(Scenes.tutorial);
     }
 
     public void OnStartClicked()
@@ -239,7 +239,7 @@ public class TitleScreen : MonoBehaviour
     {
         SaveLoadPanel.SaveComplete -= OnSaveComplete;
         step = Step.EnteringGame;
-        curtain.DrawAndGotoScene(Scenes.tutorial);
+        curtain.DrawAndFakeLoadIntoScene(Scenes.tutorial);
     }
     #endregion
 }

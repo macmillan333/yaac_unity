@@ -56,13 +56,13 @@ public class ClubPanel : MonoBehaviour
         if (!IsEmailValid(emailInput.text))
         {
             message.text = "Invalid email address.";
-            closeButton.gameObject.SetActive(true);
+            closeButton.interactable = true;
             return;
         }
         if (passwordInput.text.Length <= 8)
         {
             message.text = "Password must contain at least 8 characters.";
-            closeButton.gameObject.SetActive(true);
+            closeButton.interactable = true;
             return;
         }
         StartCoroutine(SignUpProcess());
@@ -71,11 +71,11 @@ public class ClubPanel : MonoBehaviour
     private IEnumerator SignUpProcess()
     {
         message.text = "Signing up...";
-        closeButton.gameObject.SetActive(false);
+        closeButton.interactable = false;
         yield return new WaitForSeconds(3f);
 
         message.text = "Unable to connect to server. Please try again.";
-        closeButton.gameObject.SetActive(true);
+        closeButton.interactable = true;
         playOfflineButton.gameObject.SetActive(true);
     }
 
