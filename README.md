@@ -63,6 +63,8 @@ The following assets are acquired from external resources, or are based on them.
 |Assets/Sprites/Story/Story3.jpg|[This image](https://pixabay.com/illustrations/sunrise-space-outer-space-globe-1756274/)|qimono|Pixabay License||
 |Assets/Sprites/Story/Story4.jpg|[This image](https://pixabay.com/illustrations/space-asteroids-planets-cosmos-1422642/)|UKT2|Pixabay License||
 
+Also special thanks to u/horsht for the idea of adding chromatic aberration; u/bambusbjoern for the idea of forced sign ups.
+
 ## Known issues
 
 * There is an area near the bottom-center of the screen, where all 3D sounds played become inaudible. Setting the "spread" of 3D sounds to 1 resolves the problem, but I have no idea why.

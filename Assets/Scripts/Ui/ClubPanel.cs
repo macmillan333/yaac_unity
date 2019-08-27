@@ -20,7 +20,8 @@ public class ClubPanel : MonoBehaviour
     private void OnEnable()
     {
         disclaimer.SetActive(true);
-        playOfflineButton.gameObject.SetActive(false);
+        playOfflineButton.gameObject.SetActive(
+            ProfileManager.inMemoryProfile.HasEnhancement(Enhancement.ClubSkip));
         messagePanel.SetActive(false);
     }
 

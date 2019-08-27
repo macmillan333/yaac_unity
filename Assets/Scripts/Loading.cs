@@ -10,12 +10,14 @@ public class Loading : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(FakeLoad());
-    }
-    
-    void Update()
-    {
-        
+        if (ProfileManager.inMemoryProfile.HasEnhancement(Enhancement.LoadingSkip))
+        {
+            SceneManager.LoadScene(nextScene);
+        }
+        else
+        {
+            StartCoroutine(FakeLoad());
+        }
     }
 
     private IEnumerator FakeLoad()

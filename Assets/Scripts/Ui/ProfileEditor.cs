@@ -11,7 +11,9 @@ public class ProfileEditor : MonoBehaviour
     public Toggle quizSkipToggle;
     public Toggle storySkipToggle;
     public Toggle updateSkipToggle;
+    public Toggle clubSkipToggle;
     public Toggle setupSkipToggle;
+    public Toggle loadingSkipToggle;
     public Toggle tutorialSkipToggle;
     public InputField gemsInput;
     public Transform colorPanel;
@@ -26,6 +28,7 @@ public class ProfileEditor : MonoBehaviour
             colorPanel.GetChild(i).GetComponentInChildren<Text>().text =
                 CustomizePanel.ColorToHexText(CustomizePanel.IndexToColor(i));
         }
+        gemsInput.text = "0";
         statusText.text = "Ready.";
     }
     
@@ -43,7 +46,9 @@ public class ProfileEditor : MonoBehaviour
         quizSkipToggle.isOn = p.HasEnhancement(Enhancement.QuizSkip);
         storySkipToggle.isOn = p.HasEnhancement(Enhancement.StorySkip);
         updateSkipToggle.isOn = p.HasEnhancement(Enhancement.UpdateSkip);
+        clubSkipToggle.isOn = p.HasEnhancement(Enhancement.ClubSkip);
         setupSkipToggle.isOn = p.HasEnhancement(Enhancement.SetupSkip);
+        loadingSkipToggle.isOn = p.HasEnhancement(Enhancement.LoadingSkip);
         tutorialSkipToggle.isOn = p.HasEnhancement(Enhancement.TutorialSkip);
 
         gemsInput.text = p.gems.ToString();
@@ -64,7 +69,9 @@ public class ProfileEditor : MonoBehaviour
         p.SetEnhancement(Enhancement.QuizSkip, quizSkipToggle.isOn);
         p.SetEnhancement(Enhancement.StorySkip, storySkipToggle.isOn);
         p.SetEnhancement(Enhancement.UpdateSkip, updateSkipToggle.isOn);
+        p.SetEnhancement(Enhancement.ClubSkip, clubSkipToggle.isOn);
         p.SetEnhancement(Enhancement.SetupSkip, setupSkipToggle.isOn);
+        p.SetEnhancement(Enhancement.LoadingSkip, loadingSkipToggle.isOn);
         p.SetEnhancement(Enhancement.TutorialSkip, tutorialSkipToggle.isOn);
 
         p.gems = int.Parse(gemsInput.text);
