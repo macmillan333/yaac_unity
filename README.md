@@ -16,7 +16,7 @@ All UI and game logic is designed for an aspect ratio of 16:9 and refresh rate o
 
 Install [Unity 2019.2.2f1](https://unity3d.com/get-unity/download/archive), clone this repo, then open the directory from Unity or Unity Hub as a project. Hopefully there shouldn't be any warnings or errors. In Unity, click "File-->Build Settings" to build.
 
-You may be able build this game with a Unity version different than 2019.2.2f1, but no guarantees.
+You may be able to build this game with a Unity version different than 2019.2.2f1, but no guarantees.
 
 This project should work on all desktop OSes, but I have only tested it on Windows 10 64-bit.
 

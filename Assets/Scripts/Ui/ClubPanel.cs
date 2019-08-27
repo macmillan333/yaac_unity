@@ -1,21 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ClubPanel : MonoBehaviour
 {
     public GameObject disclaimer;
+    public InputField emailInput;
+    public InputField passwordInput;
     public Button signUpButton;
-    public Button noThanksButton;
+    public Button playOfflineButton;
 
-    public GameObject signUpProgressPanel;
-    public GameObject signingUpMessage;
-    public GameObject errorMessage;
+    public GameObject messagePanel;
+    public Text message;
+    public Button closeButton;
 
     private void OnEnable()
     {
         disclaimer.SetActive(true);
+        playOfflineButton.gameObject.SetActive(false);
+        messagePanel.SetActive(false);
     }
 
     private void OnDisable()
@@ -23,26 +29,61 @@ public class ClubPanel : MonoBehaviour
         disclaimer.SetActive(false);
     }
 
+    private bool IsEmailValid(string email)
+    {
+        // https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
+        try
+        {
+            return Regex.IsMatch(email,
+                @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
+                RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+        }
+        catch (RegexMatchTimeoutException)
+        {
+            return false;
+        }
+    }
+
     public void OnSignUpClicked()
     {
+        emailInput.interactable = false;
+        passwordInput.interactable = false;
+        signUpButton.interactable = false;
+        playOfflineButton.interactable = false;
+
+        messagePanel.SetActive(true);
+        if (!IsEmailValid(emailInput.text))
+        {
+            message.text = "Invalid email address.";
+            closeButton.gameObject.SetActive(true);
+            return;
+        }
+        if (passwordInput.text.Length <= 8)
+        {
+            message.text = "Password must contain at least 8 characters.";
+            closeButton.gameObject.SetActive(true);
+            return;
+        }
         StartCoroutine(SignUpProcess());
     }
 
     private IEnumerator SignUpProcess()
     {
-        signUpButton.interactable = false;
-        noThanksButton.interactable = false;
-        signUpProgressPanel.SetActive(true);
-        signingUpMessage.SetActive(true);
-        errorMessage.SetActive(false);
+        message.text = "Signing up...";
+        closeButton.gameObject.SetActive(false);
         yield return new WaitForSeconds(3f);
 
-        signingUpMessage.SetActive(false);
-        errorMessage.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        message.text = "Unable to connect to server. Please try again.";
+        closeButton.gameObject.SetActive(true);
+        playOfflineButton.gameObject.SetActive(true);
+    }
 
+    public void OnCloseButtonClicked()
+    {
+        emailInput.interactable = true;
+        passwordInput.interactable = true;
         signUpButton.interactable = true;
-        noThanksButton.interactable = true;
-        signUpProgressPanel.SetActive(false);
+        playOfflineButton.interactable = true;
     }
 }
